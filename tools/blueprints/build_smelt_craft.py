@@ -24,6 +24,7 @@ from bplib import (
     FURY_FORGE,
     GHORM_CHEST,
     SMELTER_KILN,
+    TORCH,
     UNDERGROUND_GENERATOR,
     Layout,
     LayoutError,
@@ -96,6 +97,9 @@ def smelting_loop() -> tuple[Layout, list[tuple[int, Smelter]]]:
     for y in (0, 1, 3, 4, 5):
         layout.put((-1, y), WIRE)
     layout.put((last_small, 5), WIRE)
+    # light: torches on free tiles below the loop, beside the bar chest, past the east end and over the furnaces
+    for pos in ((2, -1), (8, -1), (east, -1), (-3, 1), (east, 5), (2, 6)):
+        layout.put(pos, Piece(TORCH))
     return layout, columns
 
 
@@ -186,6 +190,8 @@ def crafting_hub(chest: Piece) -> tuple[Layout, float]:
         raise LayoutError(f"a station is {worst:.2f} tiles from a chest; the game's limit is {CRAFTING_REACH}")
     if len(chests) > CRAFTING_CHEST_LIMIT:
         raise LayoutError(f"{len(chests)} chests, but stations only use the {CRAFTING_CHEST_LIMIT} closest")
+    for corner in inner_corners:  # light: the inner ring's corners stay empty, since no station there is reachable
+        layout.put(corner, Piece(TORCH))
     layout.check_access()
     return layout, worst
 

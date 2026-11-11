@@ -20,6 +20,7 @@ DIRECTION: dict[int, Pos] = {0: (0, 1), 1: (1, 0), 2: (0, -1), 3: (-1, 0)}
 
 # Object IDs from the game's ObjectID enum (Pug.Base.dll)
 CHEST = 100
+TORCH = 110
 GHORM_CHEST = 172  # a 2x1 boss chest with 36 slots
 ELECTRICAL_WIRE = 6501
 UNDERGROUND_GENERATOR = 6518
@@ -39,6 +40,8 @@ TILESET_DIRT = 0
 # (belts, robot arms, torches); a belt can't share a tile with a solid object.
 UNDER_OBJECTS = frozenset({ELECTRICAL_WIRE, UNDERGROUND_GENERATOR})
 FLOOR_OBJECTS = frozenset({CONVEYOR_BELT})
+# Objects nobody needs to reach, so the access check skips them
+NO_ACCESS_NEEDED = frozenset({TORCH})
 
 
 class EntityJson(TypedDict):
@@ -163,7 +166,7 @@ class Layout:
             (pos, e["ObjectID"])
             for pos, entities in self.cells.items()
             for e in entities
-            if e["ObjectID"] not in UNDER_OBJECTS | FLOOR_OBJECTS
+            if e["ObjectID"] not in UNDER_OBJECTS | FLOOR_OBJECTS | NO_ACCESS_NEEDED
             and not any(
                 (pos[0] + dx + d[0], pos[1] + dy + d[1]) in walkable
                 for dx in range(e["X"])

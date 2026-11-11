@@ -100,6 +100,25 @@
     {
       "Entities": [
         {
+          "ObjectID": 110,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
           "ObjectID": 4003,
           "X": 1,
           "Y": 1,
@@ -284,6 +303,25 @@
       ],
       "Position": [
         11,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 110,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        12,
         1
       ]
     },
@@ -860,6 +898,25 @@
     {
       "Entities": [
         {
+          "ObjectID": 110,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        9
+      ]
+    },
+    {
+      "Entities": [
+        {
           "ObjectID": 4060,
           "X": 1,
           "Y": 1,
@@ -1063,6 +1120,25 @@
       ],
       "Position": [
         11,
+        9
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 110,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        12,
         9
       ]
     },

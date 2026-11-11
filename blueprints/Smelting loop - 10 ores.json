@@ -43,6 +43,63 @@
     {
       "Entities": [
         {
+          "ObjectID": 110,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        5,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 110,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        11,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 110,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        17,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
           "ObjectID": 6651,
           "X": 1,
           "Y": 1,
@@ -353,6 +410,25 @@
       "Position": [
         17,
         2
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 110,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        3
       ]
     },
     {
@@ -1640,6 +1716,44 @@
       "Position": [
         16,
         7
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 110,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        17,
+        7
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 110,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        5,
+        8
       ]
     },
     {

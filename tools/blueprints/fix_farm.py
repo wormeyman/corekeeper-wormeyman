@@ -8,7 +8,7 @@ The capture that `Farm 22 - fixed.json` came from left out the loop's left and t
 tilled soil and the seed extractor corner. This adds them:
 - belts continuing the saved flow (right side down, bottom left), so up the left side and
   right along the top, then down into the right side
-- tilled soil on the 22 crop tiles
+- tilled soil on the 22 crop tiles, and torches on the four tiles between the two sprinklers
 - a seed extractor at the top-left of the splitter section, dropping seeds west onto the loop,
   and a robot arm to its right feeding it from the splitter below (from the tutorial's frames)
 
@@ -21,12 +21,13 @@ Usage:
 import argparse
 from pathlib import Path
 
-from bplib import CONVEYOR_BELT, ROBOT_ARM, SEED_EXTRACTOR, TILESET_DIRT, Layout, LayoutError, Piece
+from bplib import CONVEYOR_BELT, ROBOT_ARM, SEED_EXTRACTOR, TILESET_DIRT, TORCH, Layout, LayoutError, Piece
 
 BELT_UP, BELT_RIGHT, BELT_DOWN = (Piece(CONVEYOR_BELT, variation=v) for v in (0, 1, 2))
 LOOP_RIGHT_X, LOOP_TOP_Y = 10, 7
 SOIL = [(x, y) for y in (3, 5) for x in range(10)] + [(1, 4), (8, 4)]
 EXTRACTOR_ARM_BELOW = (11, 6)  # already in the capture; drops into the tile above it
+MIDDLE_TORCHES = [(x, 4) for x in range(3, 7)]  # every untilled tile between the two sprinklers
 
 
 def complete(layout: Layout, tileset: int) -> None:
@@ -38,6 +39,8 @@ def complete(layout: Layout, tileset: int) -> None:
     layout.put((LOOP_RIGHT_X, LOOP_TOP_Y), BELT_DOWN)
     for pos in SOIL:
         layout.till(pos, tileset)
+    for pos in MIDDLE_TORCHES:
+        layout.put(pos, Piece(TORCH))
     if ROBOT_ARM not in layout.objects_at(EXTRACTOR_ARM_BELOW):
         raise LayoutError(f"expected the captured robot arm at {EXTRACTOR_ARM_BELOW}; is this the right farm?")
     extractor = (EXTRACTOR_ARM_BELOW[0], LOOP_TOP_Y)

@@ -27,6 +27,8 @@ None of these has been pasted in the game yet. Paste each one away from your rea
 
 The farm design is from [Simple and Efficient Automatic Crop Farming](https://youtu.be/ULqGPiiX-yM) by Nifegun. Notes on it are in [docs/mods.md](docs/mods.md#a-tileable-crop-farm-design).
 
+**Torches are built in.** Each blueprint has torches on tiles nothing else uses (the farms' untilled middle row, the hubs' inner corners), so you can see it working. Take them out after pasting if you light the area another way.
+
 **Pasting uses your items.** Each piece takes one matching item from your inventory, and missing pieces are skipped without a warning. Tilled soil needs a hoe, which isn't used up. Run `tools/blueprint_report.py` on a file to see its map and shopping list.
 
 ### Adding a blueprint to the game

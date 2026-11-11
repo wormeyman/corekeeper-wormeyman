@@ -888,6 +888,82 @@
     {
       "Entities": [
         {
+          "ObjectID": 110,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        4,
+        4
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 110,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        5,
+        4
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 110,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        6,
+        4
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 110,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        7,
+        4
+      ]
+    },
+    {
+      "Entities": [
+        {
           "ObjectID": 6653,
           "X": 1,
           "Y": 1,
@@ -1916,6 +1992,30 @@
     },
     {
       "Position": [
+        2,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        9,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
         1,
         5
       ],
@@ -2026,30 +2126,6 @@
       "Position": [
         10,
         5
-      ],
-      "Tiles": [
-        {
-          "tileset": 0,
-          "tileType": 49
-        }
-      ]
-    },
-    {
-      "Position": [
-        2,
-        4
-      ],
-      "Tiles": [
-        {
-          "tileset": 0,
-          "tileType": 49
-        }
-      ]
-    },
-    {
-      "Position": [
-        9,
-        4
       ],
       "Tiles": [
         {

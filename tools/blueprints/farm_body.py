@@ -7,7 +7,7 @@
 Pattern taken from a working 22-tile farm (N=2): farm arm rows at y=2 and y=6, sideways arms
 at both ends of y=4, sprinklers at x=2+5k on y=4, tilled soil on y=3, y=5 and the two end
 tiles of y=4, and a belt loop around the outside (left side up, top right, right side down,
-bottom left). The seed section is not included.
+bottom left). Torches fill the untilled middle-row tiles between sprinklers. The seed section is not included.
 
 Usage:
     uv run tools/blueprints/farm_body.py <N> <out.json> <name>
@@ -18,7 +18,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from bplib import CONVEYOR_BELT, ROBOT_FARM_ARM, SPRINKLER, Layout, Piece, Pos
+from bplib import CONVEYOR_BELT, ROBOT_FARM_ARM, SPRINKLER, TORCH, Layout, Piece, Pos
 
 SPRINKLER_SPACING = 5
 MAX_SPRINKLERS = 8
@@ -43,6 +43,9 @@ def farm_body(sprinklers: int) -> Layout:
     layout.till((width - 2, 4))
     for k in range(sprinklers):
         layout.put((2 + SPRINKLER_SPACING * k, 4), Piece(SPRINKLER))
+    for k in range(sprinklers - 1):  # light: torches on every untilled middle-row tile between two sprinklers
+        for x in range(3, SPRINKLER_SPACING + 2):
+            layout.put((x + SPRINKLER_SPACING * k, 4), Piece(TORCH))
     for y in range(1, 7):
         layout.put((-1, y), BELT_UP)
     layout.put((-1, 7), BELT_RIGHT)

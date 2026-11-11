@@ -1,0 +1,1211 @@
+{
+  "Name": "Dirt pad - 10 x 10",
+  "Description": "10 x 10 dirt ground, to fill gaps with no floor. Uses one dirt block per tile outside God Mode.",
+  "EntityInfos": [],
+  "TileInfos": [
+    {
+      "Position": [
+        0,
+        0
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        1,
+        0
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        2,
+        0
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        3,
+        0
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        4,
+        0
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        5,
+        0
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        6,
+        0
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        7,
+        0
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        8,
+        0
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        9,
+        0
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        0,
+        1
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        1,
+        1
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        2,
+        1
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        3,
+        1
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        4,
+        1
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        5,
+        1
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        6,
+        1
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        7,
+        1
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        8,
+        1
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        9,
+        1
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        0,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        1,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        2,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        3,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        4,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        5,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        6,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        7,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        8,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        9,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        0,
+        3
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        1,
+        3
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        2,
+        3
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        3,
+        3
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        4,
+        3
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        5,
+        3
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        6,
+        3
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        7,
+        3
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        8,
+        3
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        9,
+        3
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        0,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        1,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        2,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        3,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        4,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        5,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        6,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        7,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        8,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        9,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        0,
+        5
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        1,
+        5
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        2,
+        5
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        3,
+        5
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        4,
+        5
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        5,
+        5
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        6,
+        5
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        7,
+        5
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        8,
+        5
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        9,
+        5
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        0,
+        6
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        1,
+        6
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        2,
+        6
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        3,
+        6
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        4,
+        6
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        5,
+        6
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        6,
+        6
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        7,
+        6
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        8,
+        6
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        9,
+        6
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        0,
+        7
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        1,
+        7
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        2,
+        7
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        3,
+        7
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        4,
+        7
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        5,
+        7
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        6,
+        7
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        7,
+        7
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        8,
+        7
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        9,
+        7
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        0,
+        8
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        1,
+        8
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        2,
+        8
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        3,
+        8
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        4,
+        8
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        5,
+        8
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        6,
+        8
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        7,
+        8
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        8,
+        8
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        9,
+        8
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        0,
+        9
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        1,
+        9
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        2,
+        9
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        3,
+        9
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        4,
+        9
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        5,
+        9
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        6,
+        9
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        7,
+        9
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        8,
+        9
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    },
+    {
+      "Position": [
+        9,
+        9
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 46
+        }
+      ]
+    }
+  ],
+  "Size": [
+    9,
+    9
+  ]
+}

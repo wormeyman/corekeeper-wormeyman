@@ -32,7 +32,8 @@ ROBOT_FARM_ARM = 6658
 FURNACE = 4004
 SMELTER_KILN = 4015
 FURY_FORGE = 4032
-# TileType enum
+# TileType enum (Pug.Base.dll)
+GROUND = 46
 DUG_UP_GROUND = 49
 TILESET_DIRT = 0
 
@@ -139,7 +140,10 @@ class Layout:
     def till(self, pos: Pos, tileset: int = TILESET_DIRT) -> None:
         if pos in self.solid:
             raise LayoutError(f"{pos} has an object on it; cannot till")
-        self.tiles.setdefault(pos, []).append({"tileset": tileset, "tileType": DUG_UP_GROUND})
+        self.tile(pos, DUG_UP_GROUND, tileset)
+
+    def tile(self, pos: Pos, tile_type: int, tileset: int = TILESET_DIRT) -> None:
+        self.tiles.setdefault(pos, []).append({"tileset": tileset, "tileType": tile_type})
 
     def objects_at(self, pos: Pos) -> set[int]:
         return {e["ObjectID"] for e in self.cells.get(pos, [])}

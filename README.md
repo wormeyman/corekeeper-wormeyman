@@ -21,6 +21,7 @@ None of these has been pasted in the game yet. Paste each one away from your rea
 |---|---|---|---|
 | `Farm 22 - fixed.json` | 17 x 8 | Nifegun's 2-sprinkler crop farm, 22 crop tiles | Set the robot arm filters (normal crop, golden crop). Drop 22 seeds on the loop and about 12 crops in the seed extractor. |
 | `Farm 82 - body only.json` | 42 x 7 | The 8-sprinkler version's farm part, 82 crop tiles | Build the seed section by hand ([video](https://youtu.be/ULqGPiiX-yM), 7:51 to 10:45), then capture the whole farm. |
+| `Dirt pad - 10 x 10.json`, `Dirt pad - 50 x 30.json` | 10 x 10, 50 x 30 | Plain dirt ground, for spots with no floor (pits, water) | Try the small one first: filling a pit or water this way is untested. |
 | `Smelting loop - 10 ores.json` | 18 x 9 | Ore chest in, bar chest out, one smelter per ore | Set the 10 loading-arm filters (listed in the blueprint's description). |
 | `Crafting hub - 20 chests.json` | 10 x 11 | 20 chests in two columns with an aisle, 40 stations around them | Keep other chests more than 10 tiles from the stations. |
 | `Crafting hub - 20 double chests.json` | 13 x 11 | The same with 20 double (boss) chests, twice the storage | Needs 20 Ghorm Chests to paste fully; otherwise place any boss chests in the 2-wide gaps. |
@@ -45,6 +46,7 @@ They are Python scripts that run with [uv](https://docs.astral.sh/uv/), which in
 - **`tools/blueprint_report.py <blueprint.json>`** draws a blueprint as a grid and lists the items one paste needs.
 - **`tools/blueprints/farm_body.py <N> <out.json> <name>`** makes the farm part of Nifegun's crop farm for 1 to 8 sprinklers (10N + 2 crop tiles). `--compare` checks it against a captured farm.
 - **`tools/blueprints/build_smelt_craft.py <folder>`** writes the smelting loop and both crafting hubs, and checks them: no overlaps, every arm points from its source to its target, every station reaches every chest, and every chest and station touches floor the player can walk to.
+- **`tools/blueprints/dirt_pad.py <width> <height> <out.json> <name>`** makes a rectangle of dirt ground tiles of any size.
 - **`tools/blueprints/fix_farm.py <captured.json> <out.json> <name>`** turned a captured 22-tile farm into `Farm 22 - fixed`: it closes the belt loop and adds the soil and the seed extractor corner.
 - **`tools/blueprints/bplib.py`** is the shared code the generators use: facing rules, object IDs, overlap checks and the blueprint file format.
 - **`tools/gamecode/`** reads the game's DLLs and the mod's asset bundle: `object_ids.py` (object and enum names), `il_decode.py` (a method's code, with names and numbers), `list_types.py`, `list_methods.py` and `mod_tile_filter.py` (BuildingBlueprint's tile filter list).

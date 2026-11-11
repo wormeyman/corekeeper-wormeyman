@@ -15,7 +15,7 @@ This project is not made by or connected to Pugstorm or Fireshine Games.
 
 ## Blueprints
 
-None of these has been pasted in the game yet. Paste each one away from your real builds first.
+The crafting hub with normal chests has been tried in the game and works. The others are not fully tested yet. Paste each one away from your real builds first. A creative world is a good place to test, but it starts with time paused, so belts, arms and crops do nothing until you unpause it.
 
 | File | Size | What it is | After pasting |
 |---|---|---|---|

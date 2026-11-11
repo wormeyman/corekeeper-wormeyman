@@ -20,7 +20,13 @@ The game has no blueprints or copy and paste for builds. Two mods help:
 
 The Workshop download includes the mod's C# source, so these notes come from reading its code (`BuildingPlaceSystem.cs`, `BuildingSelectSystem.cs`, `SaveHandler.cs`) in November 2026. Most of it has not been tested in the game yet.
 
-**Pasting uses your items.** Each tile and object you paste uses up one matching item from your inventory. If you don't have one, that piece is skipped, and the mod gives no warning. The blueprint panel shows how many of each item you need and how many you carry. Creative mode with God Mode on skips this check.
+**Pasting uses your items.** Each tile and object you paste uses up one matching item from your inventory. If you don't have one, that piece is skipped, and the mod gives no warning. Creative mode with God Mode on skips this check.
+
+**The item list in the panel goes stale.** The blueprint panel's tooltip shows how many of each item you need and how many you carry, in red when you have too few. But it counts your inventory only once per blueprint, the first time you hover it, and keeps that number (`BuildingInfo.GetMaterails` caches its list). Items you pick up later don't change it, so it can stay red when you have everything. Restarting the game or importing the blueprint again recounts. The paste itself checks your inventory live, piece by piece, so trust the paste, not the colors. Seen in the game in November 2026. More quirks from the code:
+
+- It counts only your inventory, not chests.
+- Tilled soil is listed as one Wood Hoe per tile, so 22 soil tiles ask for 22 Wood Hoes and stay red. The paste needs just one hoe of any kind, and doesn't use it up.
+- The game's tooltip has room for a fixed number of item rows. A blueprint with more kinds of item than that, like the crafting hub, makes the game log an error every frame while you hover it ("add more hoverMaterials in UIMouse"). It may also slow the game down.
 
 **Two layers.** Objects (machines, chests, torches, and so on) and tiles are selected separately. Switching layers keeps your selection, so one blueprint can hold both: box the objects, switch to the tile layer, box the tiles, then save.
 

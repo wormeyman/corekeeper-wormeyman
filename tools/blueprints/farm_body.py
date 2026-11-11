@@ -2,61 +2,98 @@
 # /// script
 # requires-python = ">=3.14"
 # ///
-"""Generate the farm body of Nifegun's tileable crop farm for N sprinklers (10N+2 crop tiles).
+"""Generate the farm part of Nifegun's tileable crop farm for N sprinklers (10N + 2 crop tiles).
 
-Pattern taken from a working 22-tile farm (N=2): farm arm rows at y=2 and y=6, sideways
-arms at the ends of y=4, sprinklers at x=2+5k on y=4, soil on y=3, y=5 and the two end tiles
-of y=4, and a belt loop around the outside (left side up, top right, right side down, bottom
-left). Variation: 0 up, 1 right, 2 down, 3 left. The seed section is not included.
-Usage: farm_body.py <N> <dest.json> <name>     (N=2 with --compare <fixed.json> self-tests)
+Pattern taken from a working 22-tile farm (N=2): farm arm rows at y=2 and y=6, sideways arms
+at both ends of y=4, sprinklers at x=2+5k on y=4, tilled soil on y=3, y=5 and the two end
+tiles of y=4, and a belt loop around the outside (left side up, top right, right side down,
+bottom left). The seed section is not included.
+
+Usage:
+    uv run tools/blueprints/farm_body.py <N> <out.json> <name>
+    uv run tools/blueprints/farm_body.py --compare <captured 22-tile farm.json>
 """
-import json, sys
 
-FARM_ARM, SPRINKLER, BELT, DUG = 6658, 6653, 6651, 49
+import argparse
+import sys
+from pathlib import Path
 
-def body(n):
-    w = 5 * n
-    ents, soil = {}, []
-    def put(x, y, oid, v=0): ents.setdefault((x, y), []).append((oid, v))
-    for x in range(w):
-        put(x, 2, FARM_ARM); put(x, 6, FARM_ARM)
-        put(x, 1, BELT, 3); put(x, 7, BELT, 1)
-        soil += [(x, 3), (x, 5)]
-    put(0, 4, FARM_ARM, 1); put(w - 1, 4, FARM_ARM, 1)
-    soil += [(1, 4), (w - 2, 4)]
-    for k in range(n): put(2 + 5 * k, 4, SPRINKLER)
-    for y in range(1, 7): put(-1, y, BELT, 0)
-    put(-1, 7, BELT, 1); put(w, 7, BELT, 2); put(w, 1, BELT, 3)
-    for y in range(2, 7): put(w, y, BELT, 2)
-    return ents, soil
+from bplib import CONVEYOR_BELT, ROBOT_FARM_ARM, SPRINKLER, Layout, Piece, Pos
 
-if sys.argv[1] == "--compare":
-    fixed = json.load(open(sys.argv[2]))
-    ents, soil = body(2)
-    want = {(x + 1, y): sorted(v) for (x, y), v in ents.items()}  # fixed file is shifted +1 in x
-    have = {}
-    for i in fixed["EntityInfos"]:
-        p = tuple(i["Position"])
-        if p[0] <= 11:   # body columns only (x -1..10 original)
-            have[p] = sorted((e["ObjectID"], e["Variation"]) for e in i["Entities"] if e["ObjectID"] in (FARM_ARM, SPRINKLER, BELT))
-    have = {k: v for k, v in have.items() if v}
-    diff = {p: (want.get(p), have.get(p)) for p in set(want) | set(have) if want.get(p) != have.get(p)}
-    fsoil = {tuple(t["Position"]) for t in fixed["TileInfos"]}
-    print("entity cells differing:", diff or "none")
-    print("soil identical:", fsoil == {(x + 1, y) for x, y in soil})
-    sys.exit()
+SPRINKLER_SPACING = 5
+MAX_SPRINKLERS = 8
+BELT_UP, BELT_RIGHT, BELT_DOWN, BELT_LEFT = (Piece(CONVEYOR_BELT, variation=v) for v in range(4))
+FARM_ARM = Piece(ROBOT_FARM_ARM)
+SIDEWAYS_FARM_ARM = Piece(ROBOT_FARM_ARM, variation=1)
 
-n, dest, name = int(sys.argv[1]), sys.argv[2], sys.argv[3]
-ents, soil = body(n)
-cells = set(ents) | set(soil)
-mx, my = min(p[0] for p in cells), min(p[1] for p in cells)
-out = {
-    "Name": name,
-    "Description": f"Nifegun tileable crop farm body, {n} sprinklers, {10*n+2} crop tiles. No seed section: build it by hand from the video.",
-    "EntityInfos": [{"Entities": [{"ObjectID": o, "X": 1, "Y": 1, "Variation": v, "Direction": [0, 0], "Color": 0} for o, v in vs],
-                     "Position": [x - mx, y - my]} for (x, y), vs in sorted(ents.items(), key=lambda kv: (kv[0][1], kv[0][0]))],
-    "TileInfos": [{"Position": [x - mx, y - my], "Tiles": [{"tileset": 0, "tileType": DUG}]} for x, y in soil],
-    "Size": [max(p[0] for p in cells) - mx, max(p[1] for p in cells) - my],
-}
-open(dest, "w", encoding="utf-8", newline="\n").write(json.dumps(out, indent=2))
-print(f"wrote {dest}")
+
+def farm_body(sprinklers: int) -> Layout:
+    width = SPRINKLER_SPACING * sprinklers
+    layout = Layout()
+    for x in range(width):
+        layout.put((x, 2), FARM_ARM)
+        layout.put((x, 6), FARM_ARM)
+        layout.put((x, 1), BELT_LEFT)
+        layout.put((x, 7), BELT_RIGHT)
+        layout.till((x, 3))
+        layout.till((x, 5))
+    layout.put((0, 4), SIDEWAYS_FARM_ARM)
+    layout.put((width - 1, 4), SIDEWAYS_FARM_ARM)
+    layout.till((1, 4))
+    layout.till((width - 2, 4))
+    for k in range(sprinklers):
+        layout.put((2 + SPRINKLER_SPACING * k, 4), Piece(SPRINKLER))
+    for y in range(1, 7):
+        layout.put((-1, y), BELT_UP)
+    layout.put((-1, 7), BELT_RIGHT)
+    layout.put((width, 7), BELT_DOWN)
+    layout.put((width, 1), BELT_LEFT)
+    for y in range(2, 7):
+        layout.put((width, y), BELT_DOWN)
+    return layout
+
+
+def compare(captured_path: Path) -> None:
+    """Check the 2-sprinkler body against a captured farm (whose x is shifted by +1)."""
+    body_ids = {ROBOT_FARM_ARM, SPRINKLER, CONVEYOR_BELT}
+    generated = farm_body(2)
+    captured = Layout.load(captured_path)
+
+    def objects(layout: Layout, shift: int) -> dict[Pos, list[tuple[int, int]]]:
+        out: dict[Pos, list[tuple[int, int]]] = {}
+        for (x, y), entities in layout.cells.items():
+            found = sorted((e["ObjectID"], e["Variation"]) for e in entities if e["ObjectID"] in body_ids)
+            if found and x + shift <= 2 * SPRINKLER_SPACING:
+                out[(x + shift, y)] = found
+        return out
+
+    want, have = objects(generated, 0), objects(captured, -1)
+    diff = {p: (want.get(p), have.get(p)) for p in want.keys() | have.keys() if want.get(p) != have.get(p)}
+    soil_same = {(x - 1, y) for x, y in captured.tiles} == set(generated.tiles)
+    print("object cells that differ (generated, captured):", diff or "none")
+    print("soil identical:", soil_same)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=(__doc__ or "").splitlines()[0])
+    parser.add_argument("--compare", type=Path, metavar="CAPTURED_JSON", help="self-test against a captured farm")
+    parser.add_argument("sprinklers", nargs="?", type=int, choices=range(1, MAX_SPRINKLERS + 1))
+    parser.add_argument("out", nargs="?", type=Path)
+    parser.add_argument("name", nargs="?")
+    args = parser.parse_args()
+    if args.compare:
+        compare(args.compare)
+        return
+    if args.sprinklers is None or args.out is None or args.name is None:
+        sys.exit("give N, the output file and the blueprint name, or --compare")
+    n: int = args.sprinklers
+    farm_body(n).write(
+        args.out,
+        args.name,
+        f"Nifegun tileable crop farm body, {n} sprinklers, {10 * n + 2} crop tiles. "
+        "No seed section: build it by hand from the video.",
+    )
+
+
+if __name__ == "__main__":
+    main()

@@ -2,55 +2,66 @@
 # /// script
 # requires-python = ">=3.14"
 # ///
-"""Write a fixed copy of a captured 22-slot farm blueprint (Nifegun design): close the belt loop and add tilled soil.
+"""Complete a captured 22-tile crop farm (Nifegun design) that missed parts of the build.
 
-Belt flow in the saved farm runs down the right side (x=10, variation 2) and left along the
-bottom (y=1, variation 3), so the loop continues up the left side (variation 0) and right
-along the top (variation 1), then down into (10,6). Variation: 0 up, 1 right, 2 down, 3 left.
-Usage: fix_farm.py <source.json> <dest.json> <name> [tileset]
+The capture that `Farm 22 - fixed.json` came from left out the loop's left and top sides, the
+tilled soil and the seed extractor corner. This adds them:
+- belts continuing the saved flow (right side down, bottom left), so up the left side and
+  right along the top, then down into the right side
+- tilled soil on the 22 crop tiles
+- a seed extractor at the top-left of the splitter section, dropping seeds west onto the loop,
+  and a robot arm to its right feeding it from the splitter below (from the tutorial's frames)
+
+Coordinates below are the captured file's (farm arm columns 0-9, loop's right side at x=10).
+
+Usage:
+    uv run tools/blueprints/fix_farm.py <captured.json> <out.json> <name> [--tileset N]
 """
-import json, sys
 
-CONVEYOR, DUG_UP_GROUND = 6651, 49
-src, dest, name = sys.argv[1:4]
-tileset = int(sys.argv[4]) if len(sys.argv) > 4 else 0  # 0 = Dirt
-bp = json.load(open(src, encoding="utf-8"))
-cells = {tuple(i["Position"]): i for i in bp["EntityInfos"]}
+import argparse
+from pathlib import Path
 
-def add_belt(x, y, variation):
-    if (x, y) in cells:
-        sys.exit(f"cell {(x, y)} is not empty; refusing to overwrite")
-    cells[(x, y)] = {"Entities": [{"ObjectID": CONVEYOR, "X": 1, "Y": 1, "Variation": variation,
-                                   "Direction": [0, 0], "Color": 0}], "Position": [x, y]}
+from bplib import CONVEYOR_BELT, ROBOT_ARM, SEED_EXTRACTOR, TILESET_DIRT, Layout, LayoutError, Piece
 
-for y in range(1, 7):
-    add_belt(-1, y, 0)          # left side, flowing up
-add_belt(-1, 7, 1)              # top-left corner, turning right
-for x in range(0, 10):
-    add_belt(x, 7, 1)           # top side, flowing right
-add_belt(10, 7, 2)              # top-right corner, turning down into (10,6)
+BELT_UP, BELT_RIGHT, BELT_DOWN = (Piece(CONVEYOR_BELT, variation=v) for v in (0, 1, 2))
+LOOP_RIGHT_X, LOOP_TOP_Y = 10, 7
+SOIL = [(x, y) for y in (3, 5) for x in range(10)] + [(1, 4), (8, 4)]
+EXTRACTOR_ARM_BELOW = (11, 6)  # already in the capture; drops into the tile above it
 
-# 22 crop tiles: rows y=3 and y=5 (x 0-9), plus (1,4) and (8,4) beside the sideways arms.
-soil = [(x, y) for y in (3, 5) for x in range(10)] + [(1, 4), (8, 4)]
-for p in soil:
-    if p in cells:
-        sys.exit(f"crop tile {p} has an object on it; layout is not what we expect")
-tiles = [{"Position": [x, y], "Tiles": [{"tileset": tileset, "tileType": DUG_UP_GROUND}]} for x, y in soil]
 
-# Re-base so the lowest x and y are 0, as the mod's own Save() does.
-allpos = list(cells) + soil
-mx, my = min(p[0] for p in allpos), min(p[1] for p in allpos)
-for info in cells.values():
-    info["Position"] = [info["Position"][0] - mx, info["Position"][1] - my]
-for t in tiles:
-    t["Position"] = [t["Position"][0] - mx, t["Position"][1] - my]
-out = {
-    "Name": name,
-    "Description": "Nifegun 22-slot crop farm. Belt loop closed and soil added by script. Seed extractor corner still missing.",
-    "EntityInfos": sorted(cells.values(), key=lambda i: (i["Position"][1], i["Position"][0])),
-    "TileInfos": tiles,
-    "Size": [max(p[0] for p in allpos) - mx, max(p[1] for p in allpos) - my],
-}
-with open(dest, "w", encoding="utf-8", newline="\n") as f:
-    f.write(json.dumps(out, indent=2, ensure_ascii=False))
-print(f"wrote {dest}: {sum(len(i['Entities']) for i in cells.values())} objects, {len(tiles)} soil tiles, size {out['Size']}")
+def complete(layout: Layout, tileset: int) -> None:
+    for y in range(1, LOOP_TOP_Y):
+        layout.put((-1, y), BELT_UP)
+    layout.put((-1, LOOP_TOP_Y), BELT_RIGHT)
+    for x in range(LOOP_RIGHT_X):
+        layout.put((x, LOOP_TOP_Y), BELT_RIGHT)
+    layout.put((LOOP_RIGHT_X, LOOP_TOP_Y), BELT_DOWN)
+    for pos in SOIL:
+        layout.till(pos, tileset)
+    if ROBOT_ARM not in layout.objects_at(EXTRACTOR_ARM_BELOW):
+        raise LayoutError(f"expected the captured robot arm at {EXTRACTOR_ARM_BELOW}; is this the right farm?")
+    extractor = (EXTRACTOR_ARM_BELOW[0], LOOP_TOP_Y)
+    layout.put(extractor, Piece(SEED_EXTRACTOR, direction=(-1, 0)))  # output = position + direction
+    feeder = (extractor[0] + 1, LOOP_TOP_Y)
+    layout.arm(feeder, source=(feeder[0] + 1, LOOP_TOP_Y), target=extractor)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=(__doc__ or "").splitlines()[0])
+    parser.add_argument("captured", type=Path)
+    parser.add_argument("out", type=Path)
+    parser.add_argument("name")
+    parser.add_argument("--tileset", type=int, default=TILESET_DIRT, help="soil look; 0 is Dirt")
+    args = parser.parse_args()
+    layout = Layout.load(args.captured)
+    complete(layout, args.tileset)
+    layout.write(
+        args.out,
+        args.name,
+        "Nifegun 22-slot crop farm. Loop closed, soil and seed extractor corner added by script; "
+        "set robot arm filters after pasting.",
+    )
+
+
+if __name__ == "__main__":
+    main()

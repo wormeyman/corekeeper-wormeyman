@@ -13,6 +13,8 @@ Do not commit Steam IDs, save data, world or character names, absolute home path
 ## Conventions
 
 - Python only, as uv scripts with a PEP 723 block (`requires-python = ">=3.14"`). Run with `uv run tools/...`.
+- Checks: `uv run ruff format --check .`, `uv run ruff check .`, `uv run pyrefly check` (strict). CI runs the same. All must pass; no blanket ignores.
+- The generators in `tools/blueprints/` share `bplib.py` (they import it as a neighbour). After changing one, regenerate its blueprint and diff it against `blueprints/` with keys and positions sorted.
 - Tools only read game files (`dnfile` for DLLs, `UnityPy` for asset bundles). Never run game code.
 - Every fact in `docs/` says where it came from: code (name the type or method), wiki, a video, or a player's game. Say what is untested.
 - Prose stays at a 12th grade reading level or below. Use hyphens, not em or en dashes.

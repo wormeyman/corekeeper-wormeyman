@@ -2,144 +2,196 @@
 # /// script
 # requires-python = ">=3.14"
 # ///
-"""Generate two BuildingBlueprint files: a 10-ore smelting loop and a 20-chest crafting hub.
+"""Generate two blueprints: a 10-ore smelting loop and a 20-chest crafting hub.
 
-Facing rules (checked against a working farm and the game code):
-- variation 0 up, 1 right, 2 down, 3 left (DirectionBasedOnVariationCD)
-- belt: items flow toward direction(variation)
-- robot arm: takes from position + direction(variation), drops at position - direction(variation)
-Multi-tile objects are stored at their bottom-left tile (assumes prefabCornerOffset 0).
-Crafting reach (Pug.Other InventoryUtility): sphere radius 10 from the station to each chest's box,
-20 closest chests only.
-Usage: build_smelt_craft.py <blueprint folder>
+Crafting reach, from the game's code (Pug.Other InventoryUtility): a sphere of radius 10 around
+the station, measured to each chest's box, keeping the 20 closest chests.
+
+Usage:
+    uv run tools/blueprints/build_smelt_craft.py <output folder>
 """
-import json, math, sys
+
+import argparse
+import math
+from dataclasses import dataclass
 from pathlib import Path
 
-DIR = {0: (0, 1), 1: (1, 0), 2: (0, -1), 3: (-1, 0)}
-def var_for(d): return {v: k for k, v in DIR.items()}[d]
+from bplib import (
+    CHEST,
+    CONVEYOR_BELT,
+    ELECTRICAL_WIRE,
+    FURNACE,
+    FURY_FORGE,
+    SMELTER_KILN,
+    UNDERGROUND_GENERATOR,
+    Layout,
+    LayoutError,
+    Piece,
+    Pos,
+)
 
-CHEST, BELT, ARM, WIRE, GEN = 100, 6651, 6652, 6501, 6518
-FURNACE, KILN, FORGE = 4004, 4015, 4032
+BELT_UP, BELT_RIGHT, BELT_DOWN, BELT_LEFT = (Piece(CONVEYOR_BELT, variation=v) for v in range(4))
+WIRE = Piece(ELECTRICAL_WIRE)
+CRAFTING_REACH = 10.0
+CRAFTING_CHEST_LIMIT = 20
 
-class BP:
-    def __init__(self): self.cells = {}; self.occupied = {}
-    def put(self, x, y, oid, v=0, size=(1, 1), floor=False):
-        # floor objects (belts, wires, lowered generator) may share a tile with each other
-        for dx in range(size[0]):
-            for dy in range(size[1]):
-                t = (x + dx, y + dy)
-                kind = "floor" if floor else "solid"
-                prev = self.occupied.get(t)
-                if prev == "solid" or (prev and kind == "solid"):
-                    sys.exit(f"overlap at {t} placing {oid}")
-                self.occupied[t] = prev or kind if floor else "solid"
-        self.cells.setdefault((x, y), []).append({"ObjectID": oid, "X": size[0], "Y": size[1], "Variation": v,
-                                                  "Direction": [0, 0], "Color": 0})
-    def arm(self, x, y, src, dst):
-        d = (src[0] - x, src[1] - y)
-        assert (x - d[0], y - d[1]) == dst, f"arm at {(x, y)}: source and target are not opposite"
-        self.put(x, y, ARM, var_for(d))
-    def write(self, path, name, desc):
-        xs = [p[0] for p in self.occupied]; ys = [p[1] for p in self.occupied]
-        mx, my = min(xs), min(ys)
-        out = {"Name": name, "Description": desc,
-               "EntityInfos": [{"Entities": ents, "Position": [x - mx, y - my]}
-                               for (x, y), ents in sorted(self.cells.items(), key=lambda kv: (kv[0][1], kv[0][0]))],
-               "TileInfos": [], "Size": [max(xs) - mx, max(ys) - my]}
-        Path(path).write_text(json.dumps(out, indent=2), encoding="utf-8")
-        print(f"wrote {path}  footprint {max(xs)-mx+1} x {max(ys)-my+1}")
 
-def smelter(folder):
-    b = BP()
-    machines = [(FURNACE, 1, "copper"), (FURNACE, 1, "tin"), (FURNACE, 1, "iron"),
-                (KILN, 1, "gold"), (KILN, 1, "scarlet"), (KILN, 1, "octarine"),
-                (FORGE, 2, "galaxite"), (FORGE, 2, "solarite"), (FORGE, 2, "pandorium"), (FORGE, 2, "relucite")]
-    x, cols = 0, []
-    for oid, s, ore in machines:
-        cols.append((x, oid, s, ore)); x += s
-    east = x  # first column after the machines
+@dataclass(frozen=True)
+class Smelter:
+    object_id: int
+    size: int
+    ore: str
+
+
+SMELTERS = [
+    Smelter(FURNACE, 1, "copper"), Smelter(FURNACE, 1, "tin"), Smelter(FURNACE, 1, "iron"),
+    Smelter(SMELTER_KILN, 1, "gold"), Smelter(SMELTER_KILN, 1, "scarlet"), Smelter(SMELTER_KILN, 1, "octarine"),
+    Smelter(FURY_FORGE, 2, "galaxite"), Smelter(FURY_FORGE, 2, "solarite"),
+    Smelter(FURY_FORGE, 2, "pandorium"), Smelter(FURY_FORGE, 2, "relucite"),
+]  # fmt: skip
+
+
+def smelting_loop() -> tuple[Layout, list[tuple[int, Smelter]]]:
+    """Ore chest -> belt loop -> filtered loading arms -> smelters -> unloading arms -> bar chest."""
+    layout = Layout()
+    columns: list[tuple[int, Smelter]] = []
+    x = 0
+    for smelter in SMELTERS:
+        columns.append((x, smelter))
+        x += smelter.size
+    east = x  # first column after the smelters
     # belt loop: y=1 flows east, y=0 flows west, joined at x=-1 and x=east
-    for i in range(-1, east): b.put(i, 1, BELT, 1, floor=True)
-    b.put(east, 1, BELT, 2, floor=True)
-    for i in range(0, east + 1): b.put(i, 0, BELT, 3, floor=True)
-    b.put(-1, 0, BELT, 0, floor=True)
-    # input chest feeds the loop corner
-    b.put(-1, -2, CHEST); b.arm(-1, -1, src=(-1, -2), dst=(-1, 0))
-    last_small = max(c[0] for c in cols if c[2] == 1)
-    for cx, oid, s, ore in cols:
-        b.put(cx, 3, oid, size=(s, s))
-        b.arm(cx, 2, src=(cx, 1), dst=(cx, 3))                  # loading arm: filter to `ore` by hand
+    for i in range(-1, east):
+        layout.put((i, 1), BELT_RIGHT)
+    layout.put((east, 1), BELT_DOWN)
+    for i in range(east + 1):
+        layout.put((i, 0), BELT_LEFT)
+    layout.put((-1, 0), BELT_UP)
+    # the ore chest feeds the loop's corner
+    layout.put((-1, -2), Piece(CHEST))
+    layout.arm((-1, -1), source=(-1, -2), target=(-1, 0))
+    last_small = max(cx for cx, s in columns if s.size == 1)
+    for cx, smelter in columns:
+        s = smelter.size
+        layout.put((cx, 3), Piece(smelter.object_id, size=(s, s)))
+        layout.arm((cx, 2), source=(cx, 1), target=(cx, 3))  # loading arm: filter to smelter.ore by hand
         top = 3 + s - 1
-        b.arm(cx, top + 1, src=(cx, top), dst=(cx, top + 2))   # unloading arm: takes bars only
-        for extra in range(1, s):                              # bridge power across 2-wide forges
-            b.put(cx + extra, 2, WIRE, floor=True); b.put(cx + extra, top + 1, WIRE, floor=True)
-    # output belt: y=6 over the forges flowing west, step down at last_small, y=5 west to x=-1
-    for i in range(last_small + 1, east): b.put(i, 6, BELT, 3, floor=True)
-    b.put(last_small, 6, BELT, 2, floor=True)
-    for i in range(-1, last_small + 1): b.put(i, 5, BELT, 3, floor=True)
-    b.put(-3, 5, CHEST); b.arm(-2, 5, src=(-1, 5), dst=(-3, 5))  # bar chest
-    # power: generator beside the loading row, wire up the west column and across the step
-    b.put(-1, 2, GEN, floor=True)
-    for y in (-1 + 1, 1, 3, 4, 5): b.put(-1, y, WIRE, floor=True)  # (-1,0),(-1,1) under belts
-    b.put(last_small, 5, WIRE, floor=True)
-    b.write(Path(folder) / "Smelting loop - 10 ores.json", "Smelting loop - 10 ores",
-            "Ores into the bottom-left chest, bars out of the top-left chest. Set each loading arm's filter: "
-            + ", ".join(f"x{c[0]} {c[3]}" for c in cols))
-    return b, cols
+        layout.arm((cx, top + 1), source=(cx, top), target=(cx, top + 2))  # unloading arm: takes bars only
+        for extra in range(1, s):  # carry power across a 2-wide forge
+            layout.put((cx + extra, 2), WIRE)
+            layout.put((cx + extra, top + 1), WIRE)
+    # output belt: y=6 over the forges flowing west, a step down at last_small, then y=5 west to x=-1
+    for i in range(last_small + 1, east):
+        layout.put((i, 6), BELT_LEFT)
+    layout.put((last_small, 6), BELT_DOWN)
+    for i in range(-1, last_small + 1):
+        layout.put((i, 5), BELT_LEFT)
+    layout.put((-3, 5), Piece(CHEST))  # bar chest
+    layout.arm((-2, 5), source=(-1, 5), target=(-3, 5))
+    # power: a lowered generator beside the loading row, wire up the west column and across the step
+    layout.put((-1, 2), Piece(UNDERGROUND_GENERATOR))
+    for y in (0, 1, 3, 4, 5):
+        layout.put((-1, y), WIRE)
+    layout.put((last_small, 5), WIRE)
+    return layout, columns
 
-STATIONS = [  # (ObjectID, size, label) - non-seasonal crafting stations, sizes from the wiki data
-    (4003, 1, "Basic Workbench"), (4043, 1, "Copper Workbench"), (4019, 1, "Tin Workbench"), (4010, 1, "Iron Workbench"),
-    (4016, 1, "Scarlet Workbench"), (4027, 1, "Octarine Workbench"), (4033, 1, "Galaxite Workbench"), (4049, 1, "Solarite Workbench"),
-    (4011, 1, "Copper Anvil"), (4020, 1, "Tin Anvil"), (4014, 1, "Iron Anvil"), (4021, 1, "Scarlet Anvil"),
-    (4024, 1, "Octarine Anvil"), (4034, 1, "Galaxite Anvil"), (4047, 1, "Solarite Anvil"),
-    (4005, 1, "Electronics Table"), (4022, 1, "Automation Table"), (4055, 1, "Advanced Automation Table"), (4017, 1, "Railway Forge"),
-    (4008, 1, "Alchemy Table"), (4026, 1, "Distillery Table"), (4053, 1, "Laboratory Table"),
-    (4012, 1, "Jewelry Workbench"), (4030, 1, "Proficient Jewelry Workbench"), (4056, 1, "Relucite Smithing Table"), (4060, 1, "Metalcrafter's Table"),
-    (4007, 1, "Carpenter's Table"), (4018, 1, "Painter's Table"), (4045, 1, "Glass Workbench"), (4041, 1, "Loom"),
-    (4052, 1, "Pouch Workbench"), (4035, 1, "Key Casting Table"), (4028, 1, "Fishing Workbench"), (4048, 1, "Livestock Workbench"),
-    (4051, 1, "Hydra Altar"), (4025, 1, "Salvage and Repair Station"),
-    (4046, 2, "Upgrade Station"), (4031, 2, "Boat Workbench"), (4036, 2, "Go-Kart Workbench"), (4042, 2, "Music Workbench"),
-]
 
-def ring(x0, y0, x1, y1):
-    """Tiles of a rectangle's border, clockwise from the bottom-left, as (x, y, side)."""
-    out = [(x, y0, "bottom") for x in range(x0, x1 + 1)]
-    out += [(x1, y, "right") for y in range(y0 + 1, y1 + 1)]
-    out += [(x, y1, "top") for x in range(x1 - 1, x0 - 1, -1)]
-    out += [(x0, y, "left") for y in range(y1 - 1, y0, -1)]
-    return out
+@dataclass(frozen=True)
+class Station:
+    object_id: int
+    label: str
+    width: int = 1
 
-def crafting(folder):
-    b = BP()
+
+STATIONS = [  # non-seasonal crafting stations; widths from the wiki's data file
+    Station(4003, "Basic Workbench"), Station(4043, "Copper Workbench"), Station(4019, "Tin Workbench"),
+    Station(4010, "Iron Workbench"), Station(4016, "Scarlet Workbench"), Station(4027, "Octarine Workbench"),
+    Station(4033, "Galaxite Workbench"), Station(4049, "Solarite Workbench"),
+    Station(4011, "Copper Anvil"), Station(4020, "Tin Anvil"), Station(4014, "Iron Anvil"),
+    Station(4021, "Scarlet Anvil"), Station(4024, "Octarine Anvil"), Station(4034, "Galaxite Anvil"),
+    Station(4047, "Solarite Anvil"),
+    Station(4005, "Electronics Table"), Station(4022, "Automation Table"), Station(4055, "Advanced Automation Table"),
+    Station(4017, "Railway Forge"), Station(4008, "Alchemy Table"), Station(4026, "Distillery Table"),
+    Station(4053, "Laboratory Table"), Station(4012, "Jewelry Workbench"),
+    Station(4030, "Proficient Jewelry Workbench"),
+    Station(4056, "Relucite Smithing Table"), Station(4060, "Metalcrafter's Table"), Station(4007, "Carpenter's Table"),
+    Station(4018, "Painter's Table"), Station(4045, "Glass Workbench"), Station(4041, "Loom"),
+    Station(4052, "Pouch Workbench"), Station(4035, "Key Casting Table"), Station(4028, "Fishing Workbench"),
+    Station(4048, "Livestock Workbench"), Station(4051, "Hydra Altar"), Station(4025, "Salvage and Repair Station"),
+    Station(4046, "Upgrade Station", 2), Station(4031, "Boat Workbench", 2),
+    Station(4036, "Go-Kart Workbench", 2), Station(4042, "Music Workbench", 2),
+]  # fmt: skip
+
+
+def ring(corner_low: Pos, corner_high: Pos) -> list[tuple[Pos, str]]:
+    """Tiles of a rectangle's border, clockwise from the bottom-left, each with its side."""
+    (x0, y0), (x1, y1) = corner_low, corner_high
+    tiles = [((x, y0), "bottom") for x in range(x0, x1 + 1)]
+    tiles += [((x1, y), "right") for y in range(y0 + 1, y1 + 1)]
+    tiles += [((x, y1), "top") for x in range(x1 - 1, x0 - 1, -1)]
+    tiles += [((x0, y), "left") for y in range(y1 - 1, y0, -1)]
+    return tiles
+
+
+def distance_to_box(point: Pos, box: Pos) -> float:
+    """Distance from a tile centre to the nearest edge of a 1x1 box, as the game's sphere test measures."""
+    dx = max(abs(point[0] - box[0]) - 0.5, 0)
+    dy = max(abs(point[1] - box[1]) - 0.5, 0)
+    return math.hypot(dx, dy)
+
+
+def crafting_hub() -> tuple[Layout, float]:
+    """20 chests in a 5x4 block, a walkway ring, then two rings of stations with a doorway at the bottom."""
+    layout = Layout()
     chests = [(x, y) for x in range(5) for y in range(4)]
-    for c in chests: b.put(*c, CHEST)
-    door = 2  # doorway column through both station rings on the bottom side
-    inner = [t for t in ring(-2, -2, 6, 5) if not (t[2] == "bottom" and t[0] == door)]
-    outer = [t for t in ring(-3, -3, 7, 6) if not (t[2] == "bottom" and t[0] == door)]
-    wide = [s for s in STATIONS if s[1] == 2]; small = [s for s in STATIONS if s[1] == 1]
-    # 2-wide stations go on the outer ring's top side, left to right, with a gap between them
-    top = sorted([t for t in outer if t[2] == "top"], key=lambda t: t[0])
-    used, placed = set(), []
-    xs = [t[0] for t in top]
-    pos = xs[0]
-    for oid, s, label in wide:
-        b.put(pos, 6, oid, size=(2, 1)); used |= {(pos, 6), (pos + 1, 6)}; placed.append((label, [(pos, 6), (pos + 1, 6)])); pos += 3
-    slots = [(x, y) for x, y, _ in inner + outer if (x, y) not in used]
-    if len(slots) < len(small): sys.exit("not enough ring slots")
-    for (oid, s, label), (x, y) in zip(small, slots):
-        b.put(x, y, oid); placed.append((label, [(x, y)]))
-    # reach check: every tile of every station within 10 of every chest box
-    def d(px, py, cx, cy): return math.hypot(max(abs(px - cx) - .5, 0), max(abs(py - cy) - .5, 0))
-    worst = max(d(px, py, cx, cy) for _, ts in placed for px, py in ts for cx, cy in chests)
-    print(f"crafting hub: {len(placed)} stations, {len(slots) - len(small)} spare ring slots, worst station-to-chest distance {worst:.2f} (limit 10)")
-    assert worst <= 10
-    b.write(Path(folder) / "Crafting hub - 20 chests.json", "Crafting hub - 20 chests",
-            "20 chests in the middle, stations in two rings within 10 tiles of every chest; doorway at the bottom middle. "
-            "Keep other chests more than 10 tiles from every station.")
-    return placed
+    for c in chests:
+        layout.put(c, Piece(CHEST))
+    doorway_x = 2
+    inner = [p for p, side in ring((-2, -2), (6, 5)) if not (side == "bottom" and p[0] == doorway_x)]
+    outer = [p for p, side in ring((-3, -3), (7, 6)) if not (side == "bottom" and p[0] == doorway_x)]
+    wide = [s for s in STATIONS if s.width > 1]
+    narrow = [s for s in STATIONS if s.width == 1]
+    placed: list[Pos] = []
+    x, top_y = -3, 6  # 2-wide stations along the outer ring's top, one tile apart
+    for station in wide:
+        layout.put((x, top_y), Piece(station.object_id, size=(station.width, 1)))
+        placed += [(x + dx, top_y) for dx in range(station.width)]
+        x += station.width + 1
+    slots = [p for p in inner + outer if p not in placed]
+    if len(slots) < len(narrow):
+        raise LayoutError(f"{len(narrow)} stations but only {len(slots)} ring slots")
+    for station, pos in zip(narrow, slots, strict=False):
+        layout.put(pos, Piece(station.object_id))
+        placed.append(pos)
+    worst = max(distance_to_box(p, c) for p in placed for c in chests)
+    if worst > CRAFTING_REACH:
+        raise LayoutError(f"a station is {worst:.2f} tiles from a chest; the game's limit is {CRAFTING_REACH}")
+    if len(chests) > CRAFTING_CHEST_LIMIT:
+        raise LayoutError(f"{len(chests)} chests, but stations only use the {CRAFTING_CHEST_LIMIT} closest")
+    return layout, worst
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=(__doc__ or "").splitlines()[0])
+    parser.add_argument("folder", type=Path)
+    folder: Path = parser.parse_args().folder
+
+    loop, columns = smelting_loop()
+    filters = ", ".join(f"x{cx} {s.ore}" for cx, s in columns)
+    loop.write(
+        folder / "Smelting loop - 10 ores.json",
+        "Smelting loop - 10 ores",
+        f"Ores into the bottom-left chest, bars out of the top-left chest. Set each loading arm's filter: {filters}",
+    )
+    hub, worst = crafting_hub()
+    print(f"crafting hub: {len(STATIONS)} stations, farthest station-to-chest distance {worst:.2f}")
+    hub.write(
+        folder / "Crafting hub - 20 chests.json",
+        "Crafting hub - 20 chests",
+        "20 chests in the middle, stations in two rings within 10 tiles of every chest; doorway at the bottom middle. "
+        "Keep other chests more than 10 tiles from every station.",
+    )
+
 
 if __name__ == "__main__":
-    folder = sys.argv[1]
-    smelter(folder)
-    crafting(folder)
+    main()

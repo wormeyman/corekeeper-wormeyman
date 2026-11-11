@@ -42,8 +42,20 @@ They are Python scripts that run with [uv](https://docs.astral.sh/uv/), which in
 - **`tools/blueprint_report.py <blueprint.json>`** draws a blueprint as a grid and lists the items one paste needs.
 - **`tools/blueprints/farm_body.py <N> <out.json> <name>`** makes the farm part of Nifegun's crop farm for 1 to 8 sprinklers (10N + 2 crop tiles). `--compare` checks it against a captured farm.
 - **`tools/blueprints/build_smelt_craft.py <folder>`** writes the smelting loop and the crafting hub, and checks them: no overlaps, every arm points from its source to its target, and every station reaches every chest.
-- **`tools/blueprints/fix_farm.py`** and **`add_corner.py`** are the one-off scripts that built `Farm 22 - fixed` from a captured farm.
+- **`tools/blueprints/fix_farm.py <captured.json> <out.json> <name>`** turned a captured 22-tile farm into `Farm 22 - fixed`: it closes the belt loop and adds the soil and the seed extractor corner.
+- **`tools/blueprints/bplib.py`** is the shared code the generators use: facing rules, object IDs, overlap checks and the blueprint file format.
 - **`tools/gamecode/`** reads the game's DLLs and the mod's asset bundle: `object_ids.py` (object and enum names), `il_decode.py` (a method's code, with names and numbers), `list_types.py`, `list_methods.py` and `mod_tile_filter.py` (BuildingBlueprint's tile filter list).
+
+## Checks
+
+The scripts are checked with [ruff](https://docs.astral.sh/ruff/) and [Pyrefly](https://pyrefly.org/) in strict mode, on every push (`.github/workflows/check.yml`). To run them yourself:
+
+```sh
+uv sync
+uv run ruff format --check .
+uv run ruff check .
+uv run pyrefly check
+```
 
 ## Facing, for anyone writing blueprints
 

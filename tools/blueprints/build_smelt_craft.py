@@ -26,6 +26,7 @@ from bplib import (
     SMELTER_KILN,
     TORCH,
     UNDERGROUND_GENERATOR,
+    Filter,
     Layout,
     LayoutError,
     Piece,
@@ -45,13 +46,15 @@ class Smelter:
     object_id: int
     size: int
     ore: str
+    ore_id: int  # ObjectID of the ore (Pug.Base.dll)
 
 
 SMELTERS = [
-    Smelter(FURNACE, 1, "copper"), Smelter(FURNACE, 1, "tin"), Smelter(FURNACE, 1, "iron"),
-    Smelter(SMELTER_KILN, 1, "gold"), Smelter(SMELTER_KILN, 1, "scarlet"), Smelter(SMELTER_KILN, 1, "octarine"),
-    Smelter(FURY_FORGE, 2, "galaxite"), Smelter(FURY_FORGE, 2, "solarite"),
-    Smelter(FURY_FORGE, 2, "pandorium"), Smelter(FURY_FORGE, 2, "relucite"),
+    Smelter(FURNACE, 1, "copper", 1500), Smelter(FURNACE, 1, "tin", 1505), Smelter(FURNACE, 1, "iron", 1510),
+    Smelter(SMELTER_KILN, 1, "gold", 1520), Smelter(SMELTER_KILN, 1, "scarlet", 1521),
+    Smelter(SMELTER_KILN, 1, "octarine", 1522),
+    Smelter(FURY_FORGE, 2, "galaxite", 1523), Smelter(FURY_FORGE, 2, "solarite", 1524),
+    Smelter(FURY_FORGE, 2, "pandorium", 1525), Smelter(FURY_FORGE, 2, "relucite", 1526),
 ]  # fmt: skip
 
 
@@ -78,7 +81,8 @@ def smelting_loop() -> tuple[Layout, list[tuple[int, Smelter]]]:
     for cx, smelter in columns:
         s = smelter.size
         layout.put((cx, 3), Piece(smelter.object_id, size=(s, s)))
-        layout.arm((cx, 2), source=(cx, 1), target=(cx, 3))  # loading arm: filter to smelter.ore by hand
+        # loading arm, filtered to its smelter's ore (the published mod drops the filter; set it by hand there)
+        layout.arm((cx, 2), source=(cx, 1), target=(cx, 3), item_filter=Filter(smelter.ore_id))
         top = 3 + s - 1
         layout.arm((cx, top + 1), source=(cx, top), target=(cx, top + 2))  # unloading arm: takes bars only
         for extra in range(1, s):  # carry power across a 2-wide forge
@@ -202,11 +206,14 @@ def main() -> None:
     folder: Path = parser.parse_args().folder
 
     loop, columns = smelting_loop()
-    filters = ", ".join(f"x{cx} {s.ore}" for cx, s in columns)
+    filters = ", ".join(f"{s.ore} ore" for _, s in columns)
     loop.write(
         folder / "Smelting loop - 10 ores.json",
         "Smelting loop - 10 ores",
-        f"Ores into the bottom-left chest, bars out of the top-left chest. Set each loading arm's filter: {filters}",
+        "Ores into the bottom-left chest, bars out of the top-left chest. The loading-arm filters are in this file, "
+        "but the published mod skips them; if they come out unset, "
+        f"set the loading arms (the row between the belt and the smelters), left to right: {filters}. "
+        "Leave the other arms unfiltered.",
     )
     common = (
         "Stations in two rings within 10 tiles of every chest; doorway at the bottom middle. "

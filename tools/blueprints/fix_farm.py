@@ -61,8 +61,9 @@ def main() -> None:
     layout.write(
         args.out,
         args.name,
-        "Nifegun 22-slot crop farm. Loop closed, soil and seed extractor corner added by script; "
-        "set robot arm filters after pasting.",
+        "Nifegun 22-slot crop farm. Loop closed, soil and seed extractor corner added by script. "
+        "After pasting, set two filters: the item collector (vacuum) right of the loop to the normal crop, "
+        "and the bottom robot arm that reaches onto the loop to the golden crop. Leave the other arms unfiltered.",
     )
 
 

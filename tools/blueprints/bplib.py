@@ -12,7 +12,7 @@ prefabCornerOffset is 0, which has not been checked in the game.
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import TypedDict
+from typing import NotRequired, TypedDict
 
 type Pos = tuple[int, int]
 
@@ -52,6 +52,10 @@ class EntityJson(TypedDict):
     Variation: int
     Direction: list[int]
     Color: int
+    # Filter fields need the patched BuildingBlueprint (paste side); the published mod ignores them
+    FilterType: NotRequired[int]
+    FilterObject: NotRequired[int]
+    FilterVariation: NotRequired[int]
 
 
 class EntityInfoJson(TypedDict):
@@ -89,6 +93,18 @@ def variation_for(direction: Pos) -> int:
     raise LayoutError(f"{direction} is not one of the four facings")
 
 
+WHITELIST, BLACKLIST = 1, 2  # FilterType enum (Pug.ECS.Components.dll); 0 is no filter
+
+
+@dataclass(frozen=True)
+class Filter:
+    """A robot arm or item collector filter: only (or never) move this item."""
+
+    object_id: int
+    variation: int = 0
+    filter_type: int = WHITELIST
+
+
 @dataclass(frozen=True)
 class Piece:
     object_id: int
@@ -96,9 +112,10 @@ class Piece:
     variation: int = 0
     direction: Pos = (0, 0)
     color: int = 0  # paint (PaintableColor); 0 is unpainted
+    filter: Filter | None = None
 
     def to_json(self) -> EntityJson:
-        return {
+        data: EntityJson = {
             "ObjectID": self.object_id,
             "X": self.size[0],
             "Y": self.size[1],
@@ -106,6 +123,11 @@ class Piece:
             "Direction": list(self.direction),
             "Color": self.color,
         }
+        if self.filter:
+            data["FilterType"] = self.filter.filter_type
+            data["FilterObject"] = self.filter.object_id
+            data["FilterVariation"] = self.filter.variation
+        return data
 
 
 class Layout:
@@ -130,12 +152,12 @@ class Layout:
             (self.floor if floor else self.solid).update(footprint)
         self.cells.setdefault(pos, []).append(piece.to_json())
 
-    def arm(self, pos: Pos, source: Pos, target: Pos) -> None:
+    def arm(self, pos: Pos, source: Pos, target: Pos, item_filter: Filter | None = None) -> None:
         """Place a robot arm that takes from `source` and drops at `target`."""
         d = (source[0] - pos[0], source[1] - pos[1])
         if (pos[0] - d[0], pos[1] - d[1]) != target:
             raise LayoutError(f"arm at {pos}: source {source} and target {target} are not on opposite sides")
-        self.put(pos, Piece(ROBOT_ARM, variation=variation_for(d)))
+        self.put(pos, Piece(ROBOT_ARM, variation=variation_for(d), filter=item_filter))
 
     def till(self, pos: Pos, tileset: int = TILESET_DIRT) -> None:
         if pos in self.solid:
@@ -189,7 +211,9 @@ class Layout:
             x, y = info["Position"]
             for e in info["Entities"]:
                 direction = (e["Direction"][0], e["Direction"][1])
-                piece = Piece(e["ObjectID"], (e["X"], e["Y"]), e["Variation"], direction, e["Color"])
+                found = e.get("FilterType", 0)
+                item_filter = Filter(e.get("FilterObject", 0), e.get("FilterVariation", 0), found) if found else None
+                piece = Piece(e["ObjectID"], (e["X"], e["Y"]), e["Variation"], direction, e["Color"], item_filter)
                 layout.put((x, y), piece)
         for tile_info in data["TileInfos"]:
             x, y = tile_info["Position"]

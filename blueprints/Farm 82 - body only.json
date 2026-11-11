@@ -1,0 +1,4492 @@
+{
+  "Name": "Farm 82 - body only",
+  "Description": "Nifegun tileable crop farm body, 8 sprinklers, 82 crop tiles. No seed section: build it by hand from the video.",
+  "EntityInfos": [
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        1,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        2,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        3,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        4,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        5,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        6,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        7,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        8,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        9,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        10,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        11,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        12,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        13,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        14,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        15,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        16,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        17,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        18,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        19,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        20,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        21,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        22,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        23,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        24,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        25,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        26,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        27,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        28,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        29,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        30,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        31,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        32,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        33,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        34,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        35,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        36,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        37,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        38,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        39,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        40,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 3,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        41,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        1,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        2,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        3,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        4,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        5,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        6,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        7,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        8,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        9,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        10,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        11,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        12,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        13,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        14,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        15,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        16,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        17,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        18,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        19,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        20,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        21,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        22,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        23,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        24,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        25,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        26,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        27,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        28,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        29,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        30,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        31,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        32,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        33,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        34,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        35,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        36,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        37,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        38,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        39,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        40,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 2,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        41,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        2
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 2,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        41,
+        2
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        1,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6653,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        3,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6653,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        8,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6653,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        13,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6653,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        18,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6653,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        23,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6653,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        28,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6653,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        33,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6653,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        38,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        40,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 2,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        41,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        4
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 2,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        41,
+        4
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        1,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        2,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        3,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        4,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        5,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        6,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        7,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        8,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        9,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        10,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        11,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        12,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        13,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        14,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        15,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        16,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        17,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        18,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        19,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        20,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        21,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        22,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        23,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        24,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        25,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        26,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        27,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        28,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        29,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        30,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        31,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        32,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        33,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        34,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        35,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        36,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        37,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        38,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        39,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6658,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        40,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 2,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        41,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        1,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        2,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        3,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        4,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        5,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        6,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        7,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        8,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        9,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        10,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        11,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        12,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        13,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        14,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        15,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        16,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        17,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        18,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        19,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        20,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        21,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        22,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        23,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        24,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        25,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        26,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        27,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        28,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        29,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        30,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        31,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        32,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        33,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        34,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        35,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        36,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        37,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        38,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        39,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 1,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        40,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 6651,
+          "X": 1,
+          "Y": 1,
+          "Variation": 2,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        41,
+        6
+      ]
+    }
+  ],
+  "TileInfos": [
+    {
+      "Position": [
+        1,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        1,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        2,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        2,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        3,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        3,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        4,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        4,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        5,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        5,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        6,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        6,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        7,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        7,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        8,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        8,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        9,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        9,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        10,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        10,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        11,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        11,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        12,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        12,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        13,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        13,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        14,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        14,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        15,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        15,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        16,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        16,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        17,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        17,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        18,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        18,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        19,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        19,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        20,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        20,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        21,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        21,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        22,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        22,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        23,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        23,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        24,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        24,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        25,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        25,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        26,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        26,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        27,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        27,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        28,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        28,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        29,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        29,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        30,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        30,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        31,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        31,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        32,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        32,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        33,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        33,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        34,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        34,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        35,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        35,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        36,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        36,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        37,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        37,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        38,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        38,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        39,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        39,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        40,
+        2
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        40,
+        4
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        2,
+        3
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    },
+    {
+      "Position": [
+        39,
+        3
+      ],
+      "Tiles": [
+        {
+          "tileset": 0,
+          "tileType": 49
+        }
+      ]
+    }
+  ],
+  "Size": [
+    41,
+    6
+  ]
+}

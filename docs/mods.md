@@ -6,8 +6,8 @@ Notes on other mods and game settings, gathered while playing (October 2026). Th
 
 - Mods come from the **Steam Workshop** (subscribe on the mod's page) or from **mod.io**. The game loads them at startup, so restart it after adding or removing one.
 - Many mods need **CoreLib**, a shared library mod. Install it too when a mod lists it.
-- A mod that asks for **elevated access** has `skipSafetyChecks` turned on, like our CrossOverSaveFix mod. That lets it use file access and Harmony patches, which normal mods cannot. See [About "elevated access"](../README.md#about-elevated-access).
-- **Under CrossOver:** the mod loader's temp-copy bug (see [The mod loader's temp copy](../README.md#the-mod-loaders-temp-copy)) can hit any mod, not just ours. If a mod loads once and is skipped on the next launch, close the game and empty `AppData/Local/Temp/Pugstorm/Core Keeper/ModLoader/` in the bottle.
+- A mod that asks for **elevated access** has `skipSafetyChecks` turned on, like the [CrossOverSaveFix](https://github.com/wormeyman/core-keeper-crossover-save-fix) mod. That lets it use file access and Harmony patches, which normal mods cannot. See [About "elevated access"](https://github.com/wormeyman/core-keeper-crossover-save-fix/blob/main/README.md#about-elevated-access).
+- **Under CrossOver:** the mod loader's temp-copy bug (see [The mod loader's temp copy](https://github.com/wormeyman/core-keeper-crossover-save-fix/blob/main/README.md#the-mod-loaders-temp-copy)) can hit any mod, not just CrossOverSaveFix. If a mod loads once and is skipped on the next launch, close the game and empty `AppData/Local/Temp/Pugstorm/Core Keeper/ModLoader/` in the bottle.
 
 ## Building: blueprints and placement
 
@@ -50,7 +50,7 @@ Add `--managed "<path to CoreKeeper_Data/Managed>"` if the game is not in the de
 
 ## Automation parts used in farms
 
-Gathered in November 2026 for blueprinting an automated crop farm. Each fact says where it came from: the game's code (read with the tools in this repo), the [Core Keeper wiki](https://corekeeper.atma.gg/en/Automation), or what a player saw in their own farm. Nothing here was tested on purpose in the game yet.
+Gathered in November 2026 for blueprinting an automated crop farm. Each fact says where it came from: the game's code (read with the tools in `tools/gamecode/`), the [Core Keeper wiki](https://corekeeper.atma.gg/en/Automation), or what a player saw in their own farm. Nothing here was tested on purpose in the game yet.
 
 **Facing is stored as the variation number** (code: `DirectionBasedOnVariationCD.GetDirectionFromVariation` in `Pug.ECS.Components.dll`). 0 faces up (+y), 1 right, 2 down, 3 left. Some object types count from 1 instead, with 0 meaning "no direction". The code has a switch for that, and which objects use it is set in the game's data, not its code. BuildingBlueprint saves and pastes the variation, so pasted objects keep their facing. There is still no way to rotate a whole blueprint.
 
@@ -126,7 +126,7 @@ Press any key during each logo. Each one fades in for 1 second, holds for 4 seco
 
 ## Making your own mod
 
-This repo's mod shows how the game's mod system works: the game compiles a mod's C# files itself when it starts, so a mod is only a `ModManifest.json` plus `Scripts/*.cs`. See [How the mod works](../CLAUDE.md#how-the-mod-works-and-why) and the [Tools](../README.md#tools) section. `CompileCheck` compiles a mod against the game's own DLLs, and `InspectMethods` reads the game's code. Both run in Docker on a machine without .NET.
+The [CrossOverSaveFix](https://github.com/wormeyman/core-keeper-crossover-save-fix) mod shows how the game's mod system works: the game compiles a mod's C# files itself when it starts, so a mod is only a `ModManifest.json` plus `Scripts/*.cs`. See [How the mod works](https://github.com/wormeyman/core-keeper-crossover-save-fix/blob/main/CLAUDE.md#how-the-mod-works-and-why) and that repo's [Tools](https://github.com/wormeyman/core-keeper-crossover-save-fix/blob/main/README.md#tools) section. `CompileCheck` compiles a mod against the game's own DLLs, and `InspectMethods` reads the game's code. Both run in Docker on a machine without .NET.
 
 ## Sources
 

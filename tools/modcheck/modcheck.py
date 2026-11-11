@@ -78,11 +78,17 @@ def export(setup: Setup, rev: str, out: Path) -> None:
         tar.extractall(out, members=members, filter="data")
 
 
-def in_container(setup: Setup, command: str) -> str:
-    """Run `command` in the .NET SDK container on a copy of the work folder; return its output."""
-    result = subprocess.run(  # noqa: S603  (full path to docker; fixed arguments)
-        [setup.docker, "run", "--rm", "--volume", f"{setup.work}:/src:ro", "--volume", f"{setup.managed}:/game:ro",
-         IMAGE, "bash", "-c", f"cp -r /src /work && cd /work && {command}"],
+def in_container(setup: Setup, command: list[str]) -> str:
+    """Run `command` in the .NET SDK container on a copy of the work folder; return its output.
+
+    The command goes to bash as separate arguments ("$@"), never as shell text, because file names
+    come from the mod's repository. The container gets no network.
+    """
+    copy_then_run = 'cp -r /src /work && cd /work && exec "$@"'
+    result = subprocess.run(  # noqa: S603  (full path to docker; no shell parses the arguments)
+        [setup.docker, "run", "--rm", "--network", "none",
+         "--volume", f"{setup.work}:/src:ro", "--volume", f"{setup.managed}:/game:ro",
+         IMAGE, "bash", "-c", copy_then_run, "bash", *command],
         capture_output=True, text=True, check=False,
     )  # fmt: skip
     return result.stdout + result.stderr
@@ -100,8 +106,8 @@ def diagnostics(log: str, kind: str) -> set[str]:
 def check(setup: Setup, rev: str) -> bool:
     export(setup, f"{rev}~1", setup.work / "before")
     export(setup, rev, setup.work / "after")
-    build = "dotnet build analyze.csproj -nologo -v:q -clp:NoSummary -p:ModSrc={}"
-    before, after = (in_container(setup, build.format(side)) for side in ("before", "after"))
+    build = ["dotnet", "build", "analyze.csproj", "-nologo", "-v:q", "-clp:NoSummary"]
+    before, after = (in_container(setup, [*build, f"-p:ModSrc={side}"]) for side in ("before", "after"))
     changed = run([setup.git, "-C", str(setup.repo), "diff", "--name-only", "-z", f"{rev}~1", rev, "--", setup.scripts])
     files = [
         f"after/{PurePosixPath(name).relative_to(setup.scripts)}"
@@ -111,7 +117,7 @@ def check(setup: Setup, rev: str) -> bool:
     whitespace: list[str] = []
     if files:
         fmt = in_container(
-            setup, "dotnet format whitespace . --folder --verify-no-changes --include " + " ".join(files)
+            setup, ["dotnet", "format", "whitespace", ".", "--folder", "--verify-no-changes", "--include", *files]
         )
         whitespace = [line.strip() for line in fmt.splitlines() if "WHITESPACE" in line]
     new_errors = diagnostics(after, "error") - diagnostics(before, "error")

@@ -20,6 +20,7 @@ DIRECTION: dict[int, Pos] = {0: (0, 1), 1: (1, 0), 2: (0, -1), 3: (-1, 0)}
 
 # Object IDs from the game's ObjectID enum (Pug.Base.dll)
 CHEST = 100
+GHORM_CHEST = 172  # a 2x1 boss chest with 36 slots
 ELECTRICAL_WIRE = 6501
 UNDERGROUND_GENERATOR = 6518
 CONVEYOR_BELT = 6651
@@ -139,6 +140,39 @@ class Layout:
 
     def objects_at(self, pos: Pos) -> set[int]:
         return {e["ObjectID"] for e in self.cells.get(pos, [])}
+
+    def check_access(self) -> None:
+        """Raise unless every solid object has a side touching floor a player can walk to from outside.
+
+        Players in the game could not open chests two tiles from the floor, so this asks for a
+        shared side, not a diagonal.
+        """
+        xs = [p[0] for p in self.solid]
+        ys = [p[1] for p in self.solid]
+        lo, hi = (min(xs) - 1, min(ys) - 1), (max(xs) + 1, max(ys) + 1)
+        walkable: set[Pos] = set()
+        todo = [lo]
+        while todo:
+            p = todo.pop()
+            inside = lo[0] <= p[0] <= hi[0] and lo[1] <= p[1] <= hi[1]
+            if p in walkable or p in self.solid or not inside:
+                continue
+            walkable.add(p)
+            todo += [(p[0] + d[0], p[1] + d[1]) for d in DIRECTION.values()]
+        stuck = [
+            (pos, e["ObjectID"])
+            for pos, entities in self.cells.items()
+            for e in entities
+            if e["ObjectID"] not in UNDER_OBJECTS | FLOOR_OBJECTS
+            and not any(
+                (pos[0] + dx + d[0], pos[1] + dy + d[1]) in walkable
+                for dx in range(e["X"])
+                for dy in range(e["Y"])
+                for d in DIRECTION.values()
+            )
+        ]
+        if stuck:
+            raise LayoutError(f"no walkable side for (position, object): {stuck}")
 
     @classmethod
     def load(cls, path: Path) -> Layout:

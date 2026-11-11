@@ -25,6 +25,7 @@ Do not commit Steam IDs, save data, world or character names, absolute home path
 - BuildingBlueprint stores a multi-tile object at its position, with the footprint starting at position + `prefabCornerOffset`. The generators assume that offset is 0 (bottom-left), which is not yet checked in the game.
 - Pasting takes one matching item per piece from the player's inventory and skips missing ones silently. Filters, chest contents and settings are not saved.
 - Crafting stations use the 20 closest chests within a radius of 10 around the station.
+- A player can only open a chest that shares a side with floor they can stand on (seen in the game: chests inside a solid 5 x 4 block could not be opened). `Layout.check_access` enforces this.
 
 ## Testing in the game
 

@@ -2,7 +2,7 @@
 # /// script
 # requires-python = ">=3.14"
 # ///
-"""Generate two blueprints: a 10-ore smelting loop and a 20-chest crafting hub.
+"""Generate a 10-ore smelting loop and two 20-chest crafting hubs (normal and double chests).
 
 Crafting reach, from the game's code (Pug.Other InventoryUtility): a sphere of radius 10 around
 the station, measured to each chest's box, keeping the 20 closest chests.
@@ -22,6 +22,7 @@ from bplib import (
     ELECTRICAL_WIRE,
     FURNACE,
     FURY_FORGE,
+    GHORM_CHEST,
     SMELTER_KILN,
     UNDERGROUND_GENERATOR,
     Layout,
@@ -34,6 +35,8 @@ BELT_UP, BELT_RIGHT, BELT_DOWN, BELT_LEFT = (Piece(CONVEYOR_BELT, variation=v) f
 WIRE = Piece(ELECTRICAL_WIRE)
 CRAFTING_REACH = 10.0
 CRAFTING_CHEST_LIMIT = 20
+# Plan this far inside the reach: the chest collider sizes the game measures to are not checked.
+REACH_MARGIN = 0.5
 
 
 @dataclass(frozen=True)
@@ -133,41 +136,57 @@ def ring(corner_low: Pos, corner_high: Pos) -> list[tuple[Pos, str]]:
     return tiles
 
 
-def distance_to_box(point: Pos, box: Pos) -> float:
-    """Distance from a tile centre to the nearest edge of a 1x1 box, as the game's sphere test measures."""
-    dx = max(abs(point[0] - box[0]) - 0.5, 0)
+def distance_to_box(point: Pos, box: Pos, width: int = 1) -> float:
+    """Distance from a tile centre to the nearest edge of a box `width` tiles wide, as the game's sphere test does."""
+    dx = max(box[0] - 0.5 - point[0], point[0] - (box[0] + width - 0.5), 0)
     dy = max(abs(point[1] - box[1]) - 0.5, 0)
     return math.hypot(dx, dy)
 
 
-def crafting_hub() -> tuple[Layout, float]:
-    """20 chests in a 5x4 block, a walkway ring, then two rings of stations with a doorway at the bottom."""
+def crafting_hub(chest: Piece) -> tuple[Layout, float]:
+    """20 chests in two 2-wide columns with an aisle between, a walkway ring, then two rings of stations.
+
+    Every chest touches the aisle or the walkway; players can't open a chest from two tiles away.
+    The doorway at the bottom lines up with the aisle.
+    """
     layout = Layout()
-    chests = [(x, y) for x in range(5) for y in range(4)]
+    w = chest.size[0]
+    aisle_x, right = 2 * w, 4 * w  # the aisle's column; the chest block's right edge
+    chests = [(x, y) for x in (0, w, aisle_x + 1, aisle_x + 1 + w) for y in range(5)]
     for c in chests:
-        layout.put(c, Piece(CHEST))
-    doorway_x = 2
-    inner = [p for p, side in ring((-2, -2), (6, 5)) if not (side == "bottom" and p[0] == doorway_x)]
-    outer = [p for p, side in ring((-3, -3), (7, 6)) if not (side == "bottom" and p[0] == doorway_x)]
-    wide = [s for s in STATIONS if s.width > 1]
-    narrow = [s for s in STATIONS if s.width == 1]
+        layout.put(c, chest)
+
+    def in_reach(p: Pos) -> bool:
+        return all(distance_to_box(p, c, w) <= CRAFTING_REACH - REACH_MARGIN for c in chests)
+
+    inner_corners = {(-2, -2), (right + 2, -2), (-2, 6), (right + 2, 6)}  # only touch the walkway diagonally
+    inner = [p for p, _ in ring((-2, -2), (right + 2, 6)) if p not in inner_corners]
+    outer = [p for p, _ in ring((-3, -3), (right + 3, 7))]
+    doorway = {(aisle_x, -2), (aisle_x, -3)}
+    free = [p for p in inner + outer if p not in doorway and in_reach(p)]
+
     placed: list[Pos] = []
-    x, top_y = -3, 6  # 2-wide stations along the outer ring's top, one tile apart
-    for station in wide:
+    top_y = 7
+    for station in (s for s in STATIONS if s.width > 1):  # along the outer ring's top
+        x = next((x for x in range(-3, right + 3) if all((x + dx, top_y) in free for dx in range(station.width))), None)
+        if x is None:
+            raise LayoutError(f"no room in reach on the top row for {station.label}")
+        tiles = [(x + dx, top_y) for dx in range(station.width)]
         layout.put((x, top_y), Piece(station.object_id, size=(station.width, 1)))
-        placed += [(x + dx, top_y) for dx in range(station.width)]
-        x += station.width + 1
-    slots = [p for p in inner + outer if p not in placed]
-    if len(slots) < len(narrow):
-        raise LayoutError(f"{len(narrow)} stations but only {len(slots)} ring slots")
-    for station, pos in zip(narrow, slots, strict=False):
+        placed += tiles
+        free = [p for p in free if p not in tiles]
+    narrow = [s for s in STATIONS if s.width == 1]
+    if len(free) < len(narrow):
+        raise LayoutError(f"{len(narrow)} stations but only {len(free)} ring slots in reach")
+    for station, pos in zip(narrow, free, strict=False):
         layout.put(pos, Piece(station.object_id))
         placed.append(pos)
-    worst = max(distance_to_box(p, c) for p in placed for c in chests)
+    worst = max(distance_to_box(p, c, w) for p in placed for c in chests)
     if worst > CRAFTING_REACH:
         raise LayoutError(f"a station is {worst:.2f} tiles from a chest; the game's limit is {CRAFTING_REACH}")
     if len(chests) > CRAFTING_CHEST_LIMIT:
         raise LayoutError(f"{len(chests)} chests, but stations only use the {CRAFTING_CHEST_LIMIT} closest")
+    layout.check_access()
     return layout, worst
 
 
@@ -183,14 +202,22 @@ def main() -> None:
         "Smelting loop - 10 ores",
         f"Ores into the bottom-left chest, bars out of the top-left chest. Set each loading arm's filter: {filters}",
     )
-    hub, worst = crafting_hub()
-    print(f"crafting hub: {len(STATIONS)} stations, farthest station-to-chest distance {worst:.2f}")
-    hub.write(
-        folder / "Crafting hub - 20 chests.json",
-        "Crafting hub - 20 chests",
-        "20 chests in the middle, stations in two rings within 10 tiles of every chest; doorway at the bottom middle. "
-        "Keep other chests more than 10 tiles from every station.",
+    common = (
+        "Stations in two rings within 10 tiles of every chest; doorway at the bottom middle. "
+        "Keep other chests more than 10 tiles from every station."
     )
+    for name, chest, note in (
+        ("Crafting hub - 20 chests", Piece(CHEST), "20 chests in two columns with an aisle between."),
+        (
+            "Crafting hub - 20 double chests",
+            Piece(GHORM_CHEST, size=(2, 1)),
+            "20 double (boss) chests, 36 slots each. Pasting needs 20 Ghorm Chests; without them, put any "
+            "boss chests on the empty 2-wide spots.",
+        ),
+    ):
+        hub, worst = crafting_hub(chest)
+        print(f"{name}: {len(STATIONS)} stations, farthest station-to-chest distance {worst:.2f}")
+        hub.write(folder / f"{name}.json", name, f"{note} {common}")
 
 
 if __name__ == "__main__":

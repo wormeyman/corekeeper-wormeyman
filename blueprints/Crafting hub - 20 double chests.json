@@ -1,0 +1,1151 @@
+{
+  "Name": "Crafting hub - 20 double chests",
+  "Description": "20 double (boss) chests, 36 slots each. Pasting needs 20 Ghorm Chests; without them, put any boss chests on the empty 2-wide spots. Stations in two rings within 10 tiles of every chest; doorway at the bottom middle. Keep other chests more than 10 tiles from every station.",
+  "EntityInfos": [
+    {
+      "Entities": [
+        {
+          "ObjectID": 4035,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        2,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4028,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        3,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4048,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        4,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4051,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        5,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4025,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        7,
+        0
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4003,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        1,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4043,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        2,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4019,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        3,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4010,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        4,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4016,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        5,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4027,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        7,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4033,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        8,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4049,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        9,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4011,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        10,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4020,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        11,
+        1
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4052,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        2,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        4,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        7,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        9,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4014,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        12,
+        3
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4041,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        4
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        2,
+        4
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        4,
+        4
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        7,
+        4
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        9,
+        4
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4021,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        12,
+        4
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4045,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        2,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        4,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        7,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        9,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4024,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        12,
+        5
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4018,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        2,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        4,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        7,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        9,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4034,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        12,
+        6
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4007,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        0,
+        7
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        2,
+        7
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        4,
+        7
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        7,
+        7
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 172,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        9,
+        7
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4047,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        12,
+        7
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4060,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        1,
+        9
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4056,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        2,
+        9
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4030,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        3,
+        9
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4012,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        4,
+        9
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4053,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        5,
+        9
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4026,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        6,
+        9
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4008,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        7,
+        9
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4017,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        8,
+        9
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4055,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        9,
+        9
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4022,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        10,
+        9
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4005,
+          "X": 1,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        11,
+        9
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4046,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        2,
+        10
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4031,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        4,
+        10
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4036,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        6,
+        10
+      ]
+    },
+    {
+      "Entities": [
+        {
+          "ObjectID": 4042,
+          "X": 2,
+          "Y": 1,
+          "Variation": 0,
+          "Direction": [
+            0,
+            0
+          ],
+          "Color": 0
+        }
+      ],
+      "Position": [
+        8,
+        10
+      ]
+    }
+  ],
+  "TileInfos": [],
+  "Size": [
+    12,
+    10
+  ]
+}

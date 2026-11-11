@@ -16,9 +16,16 @@ All from the code (`CraftingHandler.GetNearbyChests` and `InventoryUtility` in `
 
 Put the chests in the **middle** and the stations around them. The popular [Efficient Crafting Area](https://steamcommunity.com/sharedfiles/filedetails/?id=3431575585) guide does the opposite, with chests around the walls. Then stations near one wall can't reach the chests on the far wall.
 
-A 5 x 4 block of exactly 20 chests leaves 202 tiles from which a station reaches all 20. That is room for every station plus walkways. Keep all other chests more than 10 tiles from every station.
+**Every chest needs a side touching the floor.** In a test in the game, the player could not open chests in the middle of a solid 5 x 4 block. So the chests stand in two columns, each two chests wide, with an aisle between them. Each chest touches the aisle or the walkway around the block. The generator checks this: every chest and station must share a side with floor the player can walk to.
 
-`blueprints/Crafting hub - 20 chests.json` is this layout: 20 chests, a walkway ring, and 40 stations in two rings, with a doorway at the bottom. The farthest station is 8.5 tiles from the farthest chest.
+Keep all other chests more than 10 tiles from every station.
+
+There are two versions of the hub. Both have 40 stations in two rings around a walkway, with a doorway at the bottom that lines up with the aisle. The inner ring's corners stay empty, because they only touch the walkway at a corner.
+
+- **`blueprints/Crafting hub - 20 chests.json`** uses normal chests (18 slots each, 360 in all). The farthest station is 9.2 tiles from the farthest chest.
+- **`blueprints/Crafting hub - 20 double chests.json`** uses double chests (36 slots each, 720 in all). Double chests are the 2 x 1 chests bosses drop (wiki). The blueprint uses Ghorm Chests, and pasting takes that exact item. Without 20 of them, paste anyway and put any boss chests on the empty 2-wide spots. The farthest station is 9.3 tiles from the farthest chest.
+
+Both plan for 9.5 tiles, not the full 10. The game measures to each chest's collider, and the collider sizes have not been checked.
 
 ### Crafting stations in this build
 
@@ -27,7 +34,7 @@ The game's object list (code) has these normal crafting stations, besides season
 - **Workbenches (8 tiers):** Basic, Copper, Tin, Iron, Scarlet, Octarine, Galaxite, Solarite.
 - **Anvils (7 tiers):** Copper, Tin, Iron, Scarlet, Octarine, Galaxite, Solarite.
 - **Other tables:** Alchemy, Distillery, Laboratory, Carpenter's, Painter's, Electronics, Automation, Advanced Automation, Railway Forge, Jewelry, Proficient Jewelry, Relucite Smithing, Metalcrafter's, Glass Workbench, Loom, Pouch Workbench, Key Casting, Fishing Workbench, Livestock Workbench, Hydra Altar, Salvage and Repair Station, Upgrade Station, Boat Workbench, Go-Kart Workbench, Music Workbench.
-- **New, not in the wiki data yet:** Big Industrial Table and Small Industrial Table. Their size is unknown, so the hub blueprint leaves them out. It has 22 spare ring spots for them.
+- **New, not in the wiki data yet:** Big Industrial Table and Small Industrial Table. Their size is unknown, so the hub blueprint leaves them out. Both versions have spare ring spots for them.
 
 Sizes come from the wiki's data file (`Module:Data.json`). Most stations are 1 x 1. Upgrade, Boat, Go-Kart and Music are 2 x 1.
 

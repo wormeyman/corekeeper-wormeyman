@@ -1,0 +1,14 @@
+# House style of ReishyouSose/CoreKeeperMods, read from its code (the repo has no .editorconfig).
+# modcheck.py copies this into its work folder as .editorconfig for `dotnet format whitespace`.
+root = true
+
+[*.cs]
+indent_style = space
+indent_size = 4
+end_of_line = lf
+charset = utf-8-bom
+insert_final_newline = true
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true

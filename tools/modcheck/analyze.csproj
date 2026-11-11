@@ -1,0 +1,27 @@
+<!--
+  Builds a Core Keeper mod's C# scripts against the game's own DLLs, with .NET's code analyzers on.
+  Only a check: the game compiles mods itself at load time. modcheck.py copies this file into its
+  work folder and runs it inside the .NET SDK container, where the game's Managed folder is /game.
+  ModSrc is the folder of mod scripts to build; deps/ holds the scripts of mods it depends on.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <NoStdLib>true</NoStdLib>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <Nullable>disable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- CS0618: the game's own APIs are marked obsolete in places; mods have to call them anyway -->
+    <NoWarn>CS0618</NoWarn>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(ModSrc)/**/*.cs" />
+    <Compile Include="deps/**/*.cs" />
+    <Reference Include="/game/*.dll" Private="false" />
+  </ItemGroup>
+</Project>

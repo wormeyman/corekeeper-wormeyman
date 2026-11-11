@@ -12,7 +12,8 @@ Do not commit Steam IDs, save data, world or character names, absolute home path
 
 ## Conventions
 
-- Python only, as uv scripts with a PEP 723 block (`requires-python = ">=3.14"`). Run with `uv run tools/...`.
+- Python, as uv scripts with a PEP 723 block (`requires-python = ">=3.14"`). Run with `uv run tools/...`. The one exception is `tools/modcheck/`, which also holds the C# project and .editorconfig it runs.
+- Changes to other people's C# mods go as small, single-purpose commits and PRs. Each commit passes `tools/modcheck/modcheck.py`: no new compiler errors, no new analyzer warnings, clean formatting in the files it touches. Prove a new gate can fail with a deliberately bad commit before trusting it.
 - Checks: `uv run ruff format --check .`, `uv run ruff check .`, `uv run pyrefly check` (strict). CI runs the same. All must pass; no blanket ignores.
 - The generators in `tools/blueprints/` share `bplib.py` (they import it as a neighbour). After changing one, regenerate its blueprint and diff it against `blueprints/` with keys and positions sorted.
 - Tools only read game files (`dnfile` for DLLs, `UnityPy` for asset bundles). Never run game code.

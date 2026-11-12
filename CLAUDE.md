@@ -24,7 +24,7 @@ Do not commit Steam IDs, save data, world or character names, absolute home path
 
 - Facing: variation 0 up, 1 right, 2 down, 3 left. Belts flow in their facing direction. Robot arms take from position + direction and drop at position - direction. A seed extractor's output uses its `Direction` field (the game's `DirectionCD`).
 - BuildingBlueprint stores a multi-tile object at its position, with the footprint starting at position + `prefabCornerOffset`. The generators assume that offset is 0 (bottom-left), which is not yet checked in the game.
-- Pasting takes one matching item per piece from the player's inventory and skips missing ones silently. Filters, chest contents and settings are not saved.
+- Pasting takes one matching item per piece from the player's inventory and skips missing ones silently. Chest contents and settings are not saved. The published mod drops filters too. The generators still write arm filters (`FilterType`, `FilterObject`, `FilterVariation`) into each piece, and a local patch to the mod pastes them (seen in the game on 2026-11-11; not upstream yet).
 - Crafting stations use the 20 closest chests within a radius of 10 around the station.
 - A player can only open a chest that shares a side with floor they can stand on (seen in the game: chests inside a solid 5 x 4 block could not be opened). `Layout.check_access` enforces this.
 

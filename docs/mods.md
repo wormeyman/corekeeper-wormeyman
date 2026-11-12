@@ -86,7 +86,12 @@ Gathered in November 2026 for blueprinting an automated crop farm. Each fact say
 - **Building next to a running farm.** Fill your empty inventory slots with one stackable item, and carry one extra of each building piece. Otherwise a slot empties as you build, and you start picking up the crops and seeds that float on the belts. When done, sort your inventory to clear the filler. With BuildingBlueprint this matters too: a paste takes items out of your inventory, which can empty a slot.
 - **Collection point.** Each module collects at its bottom-right corner, so a row of modules can share one belt that runs past all of them.
 
-**Filters** (code: `ObjectFilteringCD`, `CategoryFilteringCD` and `MoverFilterCD`). A filter is a whitelist or blacklist of one item (with its variation) or of an item category. The wiki says you need the item in your inventory to set one. BuildingBlueprint does not copy filters, so set them again by hand after pasting.
+**Filters** (code: `ObjectFilteringCD`, `CategoryFilteringCD` and `MoverFilterCD`). A filter is a whitelist or blacklist of one item (with its variation) or of an item category. The wiki says you need the item in your inventory to set one. The published BuildingBlueprint does not copy filters, so set them again by hand after pasting.
+
+A local patch to the mod pastes filters from the blueprint file. Nothing copies them when you capture a build yet (issue #2). Tested in the game on 2026-11-11 with the smelting loop: all 10 ore arms came out filtered. Notes from the code:
+
+- The game sets a filter by writing `ObjectFilteringCD` (`InventoryUtility.AddFilter` in `Pug.Other.dll`). `MoverFilterUpdateJob` in `Pug.Automation.dll` then copies it to the arm's `MoverFilterCD`.
+- `EntityCommandBuffer.AddComponent` does nothing when the entity already has the component. It returns before setting the value (`PlaybackProcessor.AddComponent` in `Unity.Entities.dll`). Robot arms always have `ObjectFilteringCD`, so code that sets a filter must use `SetComponent`. The first try of the patch used only `AddComponent`, and every arm came out unfiltered.
 
 One community guide ([cozy-checklist](https://cozy-checklist.pages.dev/core-keeper/guides/auto-golden-crop-farm), for game version 1.2) found that crop rows longer than 8 tiles leave empty plots, because the seed extractors fall behind. That is one player's observation, not a documented rule.
 

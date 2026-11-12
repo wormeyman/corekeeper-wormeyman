@@ -70,7 +70,7 @@ From the code:
 
 It has one smelter per ore: 3 Furnaces, 3 Smelter Kilns and 4 Fury Forges. A lowered generator and 14 wires power all 22 arms.
 
-**After pasting, set the 10 loading-arm filters by hand.** BuildingBlueprint doesn't save filters. The blueprint's description lists which column gets which ore.
+**The 10 loading-arm filters are in the file, but the published BuildingBlueprint skips them.** With the published mod, set them by hand after pasting. The blueprint's description lists which column gets which ore. A local patch to the mod pastes them: in the game on 2026-11-11, all 10 arms came out with the right ore. The patch is not upstream yet. See "Filters" in [mods.md](mods.md).
 
 **Not known yet:**
 

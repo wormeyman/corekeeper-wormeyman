@@ -21,7 +21,11 @@ DIRECTION: dict[int, Pos] = {0: (0, 1), 1: (1, 0), 2: (0, -1), 3: (-1, 0)}
 # Object IDs from the game's ObjectID enum (Pug.Base.dll)
 CHEST = 100
 TORCH = 110
+LAMP = 140  # carries power like a wire and gives light (seen in the game, 2026-11-11)
 GHORM_CHEST = 172  # a 2x1 boss chest with 36 slots
+GALAXITE_ORE = 1523
+SOLARITE_ORE = 1524
+RELUCITE_ORE = 1526
 ELECTRICAL_WIRE = 6501
 UNDERGROUND_GENERATOR = 6518
 CONVEYOR_BELT = 6651

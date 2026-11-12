@@ -61,14 +61,16 @@ From the code:
 
 ### The smelting loop blueprint
 
-`blueprints/Smelting loop - 10 ores.json` (18 x 9 tiles) uses those rules:
+`blueprints/Smelting loop - 10 ores.json` (17 x 7 tiles) was built, tested and fixed in the game on 2026-11-11, then captured. `tools/blueprints/fix_smelt.py` makes the file from that capture. It uses those rules:
 
-1. Ore goes into the bottom-left chest. An arm puts it on a belt loop.
+1. Ore goes into the bottom-left chest. The arm beside it puts the ore on a belt loop.
 2. Ore circles the loop. Next to each smelter, a loading arm filtered to one ore pulls that ore in.
 3. Unloading arms take finished bars and put them on an output belt.
-4. A last arm puts the bars into the top-left chest.
+4. The output belt ends at a lamp. A last arm takes the bars from the lamp's tile and puts them into the top-left chest.
 
-It has one smelter per ore: 3 Furnaces, 3 Smelter Kilns and 4 Fury Forges. A lowered generator and 14 wires power all 22 arms.
+It has one smelter per ore: 3 Furnaces, 3 Smelter Kilns and 4 Fury Forges. An Electricity Generator powers all 22 arms. Lamps carry the power to them, as wires do, and light the build, so it has only 3 wires.
+
+**Items slide off the end of a belt.** Seen in the game on 2026-11-11. The first version ended the output belt on the tile the last arm picks from. The bars slid past it onto the arm's own tile, where the arm can't reach them. Ending the belt one tile earlier, with a lamp on the arm's pickup tile, fixed it: the bars stop on the lamp's tile and the arm takes them from there.
 
 **The 10 loading-arm filters are in the file, but the published BuildingBlueprint skips them.** With the published mod, set them by hand after pasting. The blueprint's description lists which column gets which ore. A local patch to the mod pastes them: in the game on 2026-11-11, all 10 arms came out with the right ore. The patch is not upstream yet. See "Filters" in [mods.md](mods.md).
 

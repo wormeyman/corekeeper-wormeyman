@@ -22,7 +22,7 @@ The crafting hub with normal chests has been tried in the game and works. The ot
 | `Farm 22 - fixed.json` | 17 x 8 | Nifegun's 2-sprinkler crop farm, 22 crop tiles | Set two filters: the item collector (the purple "vacuum" right of the loop) to the normal crop, and the bottom robot arm that reaches onto the loop to the golden crop. Leave the other arms unfiltered. Drop 22 seeds on the loop and about 12 crops in the seed extractor. |
 | `Farm 82 - body only.json` | 42 x 7 | The 8-sprinkler version's farm part, 82 crop tiles | Build the seed section by hand ([video](https://youtu.be/ULqGPiiX-yM), 7:51 to 10:45), then capture the whole farm. |
 | `Dirt pad - 10 x 10.json`, `Dirt pad - 50 x 30.json` | 10 x 10, 50 x 30 | Plain dirt ground, for spots with no floor (pits, water) | Try the small one first: filling a pit or water this way is untested. |
-| `Smelting loop - 10 ores.json` | 18 x 9 | Ore chest in, bar chest out, one smelter per ore | Filters are not saved. Set the 10 loading arms (between the belt and the smelters), left to right: copper, tin, iron, gold, scarlet, octarine, galaxite, solarite, pandorium, relucite ore. |
+| `Smelting loop - 10 ores.json` | 17 x 7 | Ore chest in, bar chest out, one smelter per ore. Lamps carry the power and light it | The published mod skips filters. Set the 10 loading arms (between the belt and the smelters), left to right: copper, tin, iron, gold, scarlet, octarine, galaxite, solarite, pandorium, relucite ore. |
 | `Crafting hub - 20 chests.json` | 10 x 11 | 20 chests in two columns with an aisle, 40 stations around them | Keep other chests more than 10 tiles from the stations. |
 | `Crafting hub - 20 double chests.json` | 13 x 11 | The same with 20 double (boss) chests, twice the storage | Needs 20 Ghorm Chests to paste fully; otherwise place any boss chests in the 2-wide gaps. |
 
@@ -45,7 +45,8 @@ They are Python scripts that run with [uv](https://docs.astral.sh/uv/), which in
 
 - **`tools/blueprint_report.py <blueprint.json>`** draws a blueprint as a grid and lists the items one paste needs.
 - **`tools/blueprints/farm_body.py <N> <out.json> <name>`** makes the farm part of Nifegun's crop farm for 1 to 8 sprinklers (10N + 2 crop tiles). `--compare` checks it against a captured farm.
-- **`tools/blueprints/build_smelt_craft.py <folder>`** writes the smelting loop and both crafting hubs, and checks them: no overlaps, every arm points from its source to its target, every station reaches every chest, and every chest and station touches floor the player can walk to.
+- **`tools/blueprints/build_smelt_craft.py <folder>`** writes both crafting hubs, and checks them: no overlaps, every station reaches every chest, and every chest and station touches floor the player can walk to.
+- **`tools/blueprints/fix_smelt.py <captured.json> <out.json> <name>`** turned a smelting loop built and fixed in the game into `Smelting loop - 10 ores`: it turns the ore input arm to face its chest and sets the three loading-arm filters the capture missed.
 - **`tools/blueprints/dirt_pad.py <width> <height> <out.json> <name>`** makes a rectangle of dirt ground tiles of any size.
 - **`tools/blueprints/fix_farm.py <captured.json> <out.json> <name>`** turned a captured 22-tile farm into `Farm 22 - fixed`: it closes the belt loop and adds the soil and the seed extractor corner.
 - **`tools/blueprints/bplib.py`** is the shared code the generators use: facing rules, object IDs, overlap checks and the blueprint file format.

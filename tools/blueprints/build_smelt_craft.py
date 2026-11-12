@@ -2,7 +2,10 @@
 # /// script
 # requires-python = ">=3.14"
 # ///
-"""Generate a 10-ore smelting loop and two 20-chest crafting hubs (normal and double chests).
+"""Generate two 20-chest crafting hubs (normal and double chests).
+
+The smelting loop used to be generated here too. It now comes from a build captured in the game
+(tools/blueprints/fix_smelt.py), so this script no longer writes it.
 
 Crafting reach, from the game's code (Pug.Other InventoryUtility): a sphere of radius 10 around
 the station, measured to each chest's box, keeping the 20 closest chests.
@@ -18,93 +21,18 @@ from pathlib import Path
 
 from bplib import (
     CHEST,
-    CONVEYOR_BELT,
-    ELECTRICAL_WIRE,
-    FURNACE,
-    FURY_FORGE,
     GHORM_CHEST,
-    SMELTER_KILN,
     TORCH,
-    UNDERGROUND_GENERATOR,
-    Filter,
     Layout,
     LayoutError,
     Piece,
     Pos,
 )
 
-BELT_UP, BELT_RIGHT, BELT_DOWN, BELT_LEFT = (Piece(CONVEYOR_BELT, variation=v) for v in range(4))
-WIRE = Piece(ELECTRICAL_WIRE)
 CRAFTING_REACH = 10.0
 CRAFTING_CHEST_LIMIT = 20
 # Plan this far inside the reach: the chest collider sizes the game measures to are not checked.
 REACH_MARGIN = 0.5
-
-
-@dataclass(frozen=True)
-class Smelter:
-    object_id: int
-    size: int
-    ore: str
-    ore_id: int  # ObjectID of the ore (Pug.Base.dll)
-
-
-SMELTERS = [
-    Smelter(FURNACE, 1, "copper", 1500), Smelter(FURNACE, 1, "tin", 1505), Smelter(FURNACE, 1, "iron", 1510),
-    Smelter(SMELTER_KILN, 1, "gold", 1520), Smelter(SMELTER_KILN, 1, "scarlet", 1521),
-    Smelter(SMELTER_KILN, 1, "octarine", 1522),
-    Smelter(FURY_FORGE, 2, "galaxite", 1523), Smelter(FURY_FORGE, 2, "solarite", 1524),
-    Smelter(FURY_FORGE, 2, "pandorium", 1525), Smelter(FURY_FORGE, 2, "relucite", 1526),
-]  # fmt: skip
-
-
-def smelting_loop() -> tuple[Layout, list[tuple[int, Smelter]]]:
-    """Ore chest -> belt loop -> filtered loading arms -> smelters -> unloading arms -> bar chest."""
-    layout = Layout()
-    columns: list[tuple[int, Smelter]] = []
-    x = 0
-    for smelter in SMELTERS:
-        columns.append((x, smelter))
-        x += smelter.size
-    east = x  # first column after the smelters
-    # belt loop: y=1 flows east, y=0 flows west, joined at x=-1 and x=east
-    for i in range(-1, east):
-        layout.put((i, 1), BELT_RIGHT)
-    layout.put((east, 1), BELT_DOWN)
-    for i in range(east + 1):
-        layout.put((i, 0), BELT_LEFT)
-    layout.put((-1, 0), BELT_UP)
-    # the ore chest feeds the loop's corner
-    layout.put((-1, -2), Piece(CHEST))
-    layout.arm((-1, -1), source=(-1, -2), target=(-1, 0))
-    last_small = max(cx for cx, s in columns if s.size == 1)
-    for cx, smelter in columns:
-        s = smelter.size
-        layout.put((cx, 3), Piece(smelter.object_id, size=(s, s)))
-        # loading arm, filtered to its smelter's ore (the published mod drops the filter; set it by hand there)
-        layout.arm((cx, 2), source=(cx, 1), target=(cx, 3), item_filter=Filter(smelter.ore_id))
-        top = 3 + s - 1
-        layout.arm((cx, top + 1), source=(cx, top), target=(cx, top + 2))  # unloading arm: takes bars only
-        for extra in range(1, s):  # carry power across a 2-wide forge
-            layout.put((cx + extra, 2), WIRE)
-            layout.put((cx + extra, top + 1), WIRE)
-    # output belt: y=6 over the forges flowing west, a step down at last_small, then y=5 west to x=-1
-    for i in range(last_small + 1, east):
-        layout.put((i, 6), BELT_LEFT)
-    layout.put((last_small, 6), BELT_DOWN)
-    for i in range(-1, last_small + 1):
-        layout.put((i, 5), BELT_LEFT)
-    layout.put((-3, 5), Piece(CHEST))  # bar chest
-    layout.arm((-2, 5), source=(-1, 5), target=(-3, 5))
-    # power: a lowered generator beside the loading row, wire up the west column and across the step
-    layout.put((-1, 2), Piece(UNDERGROUND_GENERATOR))
-    for y in (0, 1, 3, 4, 5):
-        layout.put((-1, y), WIRE)
-    layout.put((last_small, 5), WIRE)
-    # light: torches on free tiles below the loop, beside the bar chest, past the east end and over the furnaces
-    for pos in ((2, -1), (8, -1), (east, -1), (-3, 1), (east, 5), (2, 6)):
-        layout.put(pos, Piece(TORCH))
-    return layout, columns
 
 
 @dataclass(frozen=True)
@@ -205,16 +133,6 @@ def main() -> None:
     parser.add_argument("folder", type=Path)
     folder: Path = parser.parse_args().folder
 
-    loop, columns = smelting_loop()
-    filters = ", ".join(f"{s.ore} ore" for _, s in columns)
-    loop.write(
-        folder / "Smelting loop - 10 ores.json",
-        "Smelting loop - 10 ores",
-        "Ores into the bottom-left chest, bars out of the top-left chest. The loading-arm filters are in this file, "
-        "but the published mod skips them; if they come out unset, "
-        f"set the loading arms (the row between the belt and the smelters), left to right: {filters}. "
-        "Leave the other arms unfiltered.",
-    )
     common = (
         "Stations in two rings within 10 tiles of every chest; doorway at the bottom middle. "
         "Keep other chests more than 10 tiles from every station."

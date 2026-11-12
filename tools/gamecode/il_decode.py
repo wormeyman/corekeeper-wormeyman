@@ -5,8 +5,8 @@
 # ///
 """Decode a .NET method body, with member names and constant values. Read only.
 
-Covers the opcodes the game's code uses in practice (ECMA-335). An unknown opcode stops the
-listing with `??` rather than guessing its length.
+Covers every opcode in ECMA-335 Partition III. An unknown opcode stops the listing with `??`
+rather than guessing its length.
 
 Usage:
     uv run tools/gamecode/il_decode.py <dll> <TypeName> <MethodName> [overload number]
@@ -80,15 +80,27 @@ def _table() -> dict[int, tuple[str, Operand]]:
         0x58: "add", 0x59: "sub", 0x5A: "mul", 0x5B: "div", 0x5C: "div.un", 0x5D: "rem", 0x5E: "rem.un", 0x5F: "and",
         0x60: "or", 0x61: "xor", 0x62: "shl", 0x63: "shr", 0x64: "shr.un", 0x65: "neg", 0x66: "not",
         0x67: "conv.i1", 0x68: "conv.i2", 0x69: "conv.i4", 0x6A: "conv.i8", 0x6B: "conv.r4", 0x6C: "conv.r8",
-        0x6D: "conv.u4", 0x6E: "conv.u8", 0x76: "conv.r.un", 0x94: "ldelem.i4", 0x9E: "stelem.i4",
-        0xD1: "conv.u2", 0xD2: "conv.u1", 0xD3: "conv.i", 0xE0: "conv.u",
+        0x6D: "conv.u4", 0x6E: "conv.u8", 0x76: "conv.r.un",
+        0x82: "conv.ovf.i1.un", 0x83: "conv.ovf.i2.un", 0x84: "conv.ovf.i4.un", 0x85: "conv.ovf.i8.un",
+        0x86: "conv.ovf.u1.un", 0x87: "conv.ovf.u2.un", 0x88: "conv.ovf.u4.un", 0x89: "conv.ovf.u8.un",
+        0x8A: "conv.ovf.i.un", 0x8B: "conv.ovf.u.un",
+        0x90: "ldelem.i1", 0x91: "ldelem.u1", 0x92: "ldelem.i2", 0x93: "ldelem.u2", 0x94: "ldelem.i4",
+        0x95: "ldelem.u4", 0x96: "ldelem.i8", 0x97: "ldelem.i", 0x98: "ldelem.r4", 0x99: "ldelem.r8",
+        0x9A: "ldelem.ref", 0x9B: "stelem.i", 0x9C: "stelem.i1", 0x9D: "stelem.i2", 0x9E: "stelem.i4",
+        0x9F: "stelem.i8", 0xA0: "stelem.r4", 0xA1: "stelem.r8", 0xA2: "stelem.ref",
+        0xB3: "conv.ovf.i1", 0xB4: "conv.ovf.u1", 0xB5: "conv.ovf.i2", 0xB6: "conv.ovf.u2", 0xB7: "conv.ovf.i4",
+        0xB8: "conv.ovf.u4", 0xB9: "conv.ovf.i8", 0xBA: "conv.ovf.u8", 0xC3: "ckfinite",
+        0xD1: "conv.u2", 0xD2: "conv.u1", 0xD3: "conv.i", 0xD4: "conv.ovf.i", 0xD5: "conv.ovf.u",
+        0xD6: "add.ovf", 0xD7: "add.ovf.un", 0xD8: "mul.ovf", 0xD9: "mul.ovf.un", 0xDA: "sub.ovf",
+        0xDB: "sub.ovf.un", 0xDF: "stind.i", 0xE0: "conv.u",
     }  # fmt: skip
     ops.update({code: (name, o.NONE) for code, name in simple.items()})
     tokens = {
         0x27: "jmp", 0x28: "call", 0x29: "calli", 0x6F: "callvirt", 0x70: "cpobj", 0x71: "ldobj", 0x72: "ldstr",
         0x73: "newobj", 0x74: "castclass", 0x75: "isinst", 0x79: "unbox", 0x7B: "ldfld", 0x7C: "ldflda",
         0x7D: "stfld", 0x7E: "ldsfld", 0x7F: "ldsflda", 0x80: "stsfld", 0x81: "stobj", 0x8C: "box",
-        0x8D: "newarr", 0x8F: "ldelema", 0xA3: "ldelem", 0xA4: "stelem", 0xA5: "unbox.any", 0xD0: "ldtoken",
+        0x8D: "newarr", 0x8F: "ldelema", 0xA3: "ldelem", 0xA4: "stelem", 0xA5: "unbox.any", 0xC2: "refanyval",
+        0xC6: "mkrefany", 0xD0: "ldtoken",
     }  # fmt: skip
     ops.update({code: (name, o.TOKEN) for code, name in tokens.items()})
     return ops
@@ -102,7 +114,11 @@ TWO_BYTE: dict[int, tuple[str, Operand]] = {
     0x09: ("ldarg", Operand.INDEX16), 0x0A: ("ldarga", Operand.INDEX16), 0x0B: ("starg", Operand.INDEX16),
     0x0C: ("ldloc", Operand.INDEX16), 0x0D: ("ldloca", Operand.INDEX16), 0x0E: ("stloc", Operand.INDEX16),
     0x15: ("initobj", Operand.TOKEN), 0x16: ("constrained.", Operand.TOKEN), 0x1C: ("sizeof", Operand.TOKEN),
-    0x1E: ("readonly.", Operand.NONE),
+    0x1E: ("readonly.", Operand.NONE), 0x00: ("arglist", Operand.NONE), 0x07: ("ldvirtftn", Operand.TOKEN),
+    0x0F: ("localloc", Operand.NONE), 0x11: ("endfilter", Operand.NONE), 0x12: ("unaligned.", Operand.INDEX8),
+    0x13: ("volatile.", Operand.NONE), 0x14: ("tail.", Operand.NONE), 0x17: ("cpblk", Operand.NONE),
+    0x18: ("initblk", Operand.NONE), 0x19: ("no.", Operand.INDEX8), 0x1A: ("rethrow", Operand.NONE),
+    0x1D: ("refanytype", Operand.NONE),
 }  # fmt: skip
 
 # struct format and size for fixed-size operands

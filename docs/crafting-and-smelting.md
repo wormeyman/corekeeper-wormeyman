@@ -72,7 +72,7 @@ It has one smelter per ore: 3 Furnaces, 3 Smelter Kilns and 4 Fury Forges. An El
 
 **Items slide off the end of a belt.** Seen in the game on 2026-11-11. The first version ended the output belt on the tile the last arm picks from. The bars slid past it onto the arm's own tile, where the arm can't reach them. Ending the belt one tile earlier, with a lamp on the arm's pickup tile, fixed it: the bars stop on the lamp's tile and the arm takes them from there.
 
-**The 10 loading-arm filters are in the file, but the published BuildingBlueprint skips them.** With the published mod, set them by hand after pasting. The blueprint's description lists which column gets which ore. A local patch to the mod pastes them: in the game on 2026-11-11, all 10 arms came out with the right ore. The patch is not upstream yet. See "Filters" in [mods.md](mods.md).
+**The 10 loading-arm filters are in the file, but the Workshop release of BuildingBlueprint skips them.** With that release, set them by hand after pasting. The blueprint's description lists which column gets which ore. The code that pastes them was merged upstream on 2026-11-13 but is not on the Workshop yet: in the game on 2026-11-11, all 10 arms came out with the right ore. See "Filters" in [mods.md](mods.md).
 
 **Not known yet:**
 

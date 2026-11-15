@@ -56,7 +56,7 @@ class EntityJson(TypedDict):
     Variation: int
     Direction: list[int]
     Color: int
-    # Filter fields need the patched BuildingBlueprint (paste side); the published mod ignores them
+    # Filter fields need BuildingBlueprint with upstream PR #6; the 2026-10-15 Workshop release ignores them
     FilterType: NotRequired[int]
     FilterObject: NotRequired[int]
     FilterVariation: NotRequired[int]

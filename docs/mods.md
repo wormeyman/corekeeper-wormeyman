@@ -28,6 +28,8 @@ The Workshop download includes the mod's C# source, so these notes come from rea
 - Tilled soil is listed as one Wood Hoe per tile, so 22 soil tiles ask for 22 Wood Hoes and stay red. The paste needs just one hoe of any kind, and doesn't use it up.
 - The game's tooltip has room for a fixed number of item rows. A blueprint with more kinds of item than that, like the crafting hub, makes the game log an error every frame while you hover it ("add more hoverMaterials in UIMouse"). It may also slow the game down.
 
+All three are fixed upstream but not on the Workshop yet. See "Changes sent upstream" below.
+
 **Two layers.** Objects (machines, chests, torches, and so on) and tiles are selected separately. Switching layers keeps your selection, so one blueprint can hold both: box the objects, switch to the tile layer, box the tiles, then save.
 
 - An object is only picked up when it fits fully inside the box. Its paint color is copied. What is inside a chest is not.
@@ -53,6 +55,21 @@ uv run tools/blueprint_report.py "<path to blueprint>.json"
 ```
 
 Add `--managed "<path to CoreKeeper_Data/Managed>"` if the game is not in the default Linux Steam folder. It has only been tried on a blueprint with objects and no tiles.
+
+### Changes sent upstream
+
+BuildingBlueprint's source is in [ReishyouSose/CoreKeeperMods](https://github.com/ReishyouSose/CoreKeeperMods) (main branch `1.2`). We send fixes as small PRs from the fork `wormeyman/CoreKeeperMods`, each commit checked with `tools/modcheck/modcheck.py`.
+
+| PR | What it changes | State (2026-11-15) |
+|---|---|---|
+| [#3](https://github.com/ReishyouSose/CoreKeeperMods/pull/3) | The tooltip's item counts stay current | Merged 2026-11-12 |
+| [#4](https://github.com/ReishyouSose/CoreKeeperMods/pull/4) | Reads the inventory through a read-only lookup (fixes two problems found in #3 after it merged) | Merged 2026-11-13 |
+| [#6](https://github.com/ReishyouSose/CoreKeeperMods/pull/6) | Tilled soil asks for 1 hoe of any kind; the item list fits the tooltip's rows, missing items first; arm and item collector filters paste and capture | Merged 2026-11-13 |
+| [#7](https://github.com/ReishyouSose/CoreKeeperMods/pull/7) | A README listing the author's 8 Workshop mods, a Chinese version, and a banner made from the mods' preview images | Draft |
+
+None of the merged changes are on the Workshop yet. Its page was last updated on 2026-10-15, and the author said on [issue #5](https://github.com/ReishyouSose/CoreKeeperMods/issues/5) that he will test and adjust the code before publishing it. Client and server need the same version to paste, because #6 adds fields to `PlaceEntityRpc`.
+
+`tools/upstream/readme_banner.py` rebuilds #7's `readme-banner.png`. It downloads the preview images and the Pixelify Sans font on its first run.
 
 ## Automation parts used in farms
 

@@ -51,6 +51,7 @@ They are Python scripts that run with [uv](https://docs.astral.sh/uv/), which in
 - **`tools/blueprints/fix_farm.py <captured.json> <out.json> <name>`** turned a captured 22-tile farm into `Farm 22 - fixed`: it closes the belt loop and adds the soil and the seed extractor corner.
 - **`tools/blueprints/bplib.py`** is the shared code the generators use: facing rules, object IDs, overlap checks and the blueprint file format.
 - **`tools/modcheck/modcheck.py`** checks changes to someone else's C# mod, one commit at a time: it builds the mod before and after each commit against the game's DLLs (with the .NET SDK in Docker) and fails if a commit adds a compiler error, a .NET analyzer warning or a formatting problem in the files it changes. Existing problems in the mod are left alone. Example: `uv run tools/modcheck/modcheck.py --repo <mod repo> --scripts Assets/BuildingBlueprint/Scripts --dep <CoreLib's Scripts folder> <commit>...`. It needs Docker and reads the game's files from your install, so CI can't run it.
+- **`tools/upstream/readme_banner.py <cache-dir> <out.png>`** builds the banner for the BuildingBlueprint author's README ([PR #7](https://github.com/ReishyouSose/CoreKeeperMods/pull/7)) from the 8 mods' Workshop preview images.
 - **`tools/gamecode/`** reads the game's DLLs and the mod's asset bundle: `object_ids.py` (object and enum names), `il_decode.py` (a method's code, with names and numbers), `list_types.py`, `list_methods.py` and `mod_tile_filter.py` (BuildingBlueprint's tile filter list).
 
 ## Checks
